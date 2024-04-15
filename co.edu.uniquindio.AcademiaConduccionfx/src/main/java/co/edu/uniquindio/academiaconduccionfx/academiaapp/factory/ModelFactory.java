@@ -60,7 +60,6 @@ public class ModelFactory {
         academiaConduccion.getListaUsuarios().add(usuario4);
     }
 
-
     public List<Usuario> obtenerUsuarios() {
         return academiaConduccion.getListaUsuarios();
     }

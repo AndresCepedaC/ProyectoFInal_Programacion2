@@ -1,6 +1,4 @@
 package co.edu.uniquindio.academiaconduccionfx.academiaapp.model;
 
-public enum CategoriaLicencia {
+public enum hPracticas { H_PRACTICAS, H_TEORICAS}
 
-    
-}
