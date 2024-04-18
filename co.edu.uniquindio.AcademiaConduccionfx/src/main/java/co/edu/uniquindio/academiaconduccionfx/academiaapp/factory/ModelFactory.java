@@ -25,7 +25,7 @@ public class ModelFactory {
         Usuario usuario = Usuario.builder()
                 .setNombre("Jorge")
                 .setApellido("Montoya")
-                .setCedula("1094")
+                .setCedula("123")
                 .setCorreo("Jor@24")
                 .setEdad(20)
                 .build();
@@ -54,6 +54,11 @@ public class ModelFactory {
                 .setEdad(26)
                 .build();
 
+        usuario.setContrasena("123");
+        usuario2.setContrasena("1234");
+        usuario3.setContrasena("1235");
+        usuario4.setContrasena("1236");
+
         academiaConduccion.getListaUsuarios().add(usuario);
         academiaConduccion.getListaUsuarios().add(usuario2);
         academiaConduccion.getListaUsuarios().add(usuario3);
@@ -75,5 +80,9 @@ public class ModelFactory {
 
     public int encontrarIndiceUsuario(Usuario cedula) {
         return academiaConduccion.encontrarIndiceUsuario(cedula);
+    }
+
+    public boolean validarContrasena(String text, String text1) {
+        return academiaConduccion.validarContrasena(text,text1);
     }
 }

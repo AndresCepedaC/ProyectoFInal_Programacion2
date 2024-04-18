@@ -8,6 +8,7 @@ public class Usuario {
     private String cedula;
     private int edad;
     private String correo;
+    private String contrasena;
 
     public Usuario() {
     }
@@ -42,6 +43,15 @@ public class Usuario {
     public String getCorreo() {
         return correo;
     }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
     public static UsuarioBuilder builder(){
         return new UsuarioBuilder();
     }

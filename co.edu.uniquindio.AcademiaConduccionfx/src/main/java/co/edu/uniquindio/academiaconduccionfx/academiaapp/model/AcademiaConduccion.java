@@ -82,4 +82,14 @@ public class AcademiaConduccion {
         return counter;
 
     }
+
+    public boolean validarContrasena(String cedula, String contrasena) {
+        Usuario usuarioEncontrado = obtenerUsuario(cedula);
+        if (usuarioEncontrado != null){
+            if (usuarioEncontrado.getContrasena().equalsIgnoreCase(contrasena)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -1,6 +1,7 @@
 module co.edu.uniquindio.academiaconduccionfx.academiaapp {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.security.jgss;
 
 
     opens co.edu.uniquindio.academiaconduccionfx.academiaapp to javafx.fxml;
