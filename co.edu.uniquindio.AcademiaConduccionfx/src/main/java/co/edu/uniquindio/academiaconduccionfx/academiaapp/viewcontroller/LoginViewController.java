@@ -55,7 +55,6 @@ public class LoginViewController implements INavegacion {
     @FXML
     void initialize() {
         loginController = new LoginController();
-        modelFactory = modelFactory.getInstance();
     }
 
     public void loginUsuario() {
@@ -81,42 +80,5 @@ public class LoginViewController implements INavegacion {
             alert.setHeaderText("Error al iniciar sesión");
             alert.setContentText("Todos los campos son obligatorios para continuar.");
             alert.showAndWait();}
-//        try {
-//            Usuario usuario = loginController.obtenerUsuario(txtUsuario.getText());
-//            Sesion sesion = Sesion.getInstancia();
-//            sesion.setUsuario(usuario);
-//            navegarVentana("Academia.fxml", "Academia de conduccion");
-//        } catch (Exception e) {
-//            Alert alert = new Alert(Alert.AlertType.ERROR);
-//            alert.setTitle("Error");
-//            alert.setHeaderText("Error al iniciar sesión");
-//            alert.setContentText("Sus datos de acceso son errones.");
-//            alert.showAndWait();
-//        }
     }
-    public void navegarVentana(String nombreArchivoFxml, String tituloVentana) {
-        try {
-
-            // Cargar la vista
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(nombreArchivoFxml));
-            Parent root = loader.load();
-
-            // Crear la escena
-            Scene scene = new Scene(root);
-
-            // Crear un nuevo escenario (ventana)
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.setResizable(false);
-            stage.setTitle(tituloVentana);
-
-            // Mostrar la nueva ventana
-            stage.show();
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
-
 }

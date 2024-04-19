@@ -92,4 +92,18 @@ public class AcademiaConduccion {
         }
         return false;
     }
+
+    public boolean agregarUsuario(Usuario usuario) {
+        if (usuario != null){
+            for (Usuario usuario1 : listaUsuarios){
+                if (usuario == usuario1){
+                    return false;
+                }else {
+                    listaUsuarios.add(usuario);
+                    return true;
+            }
+        }
+        }
+        return false;
+    }
 }

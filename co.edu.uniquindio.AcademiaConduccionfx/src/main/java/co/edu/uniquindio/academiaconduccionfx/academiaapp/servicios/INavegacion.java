@@ -8,18 +8,19 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public interface INavegacion {
-    default void irPantalla(String nombreArchivoFxml, String tituloVentana) {
+    default void irPantalla(String fxmlPath, String title) {
         try {
-            FXMLLoader loader = new FXMLLoader(AcademiaApplication.class.getResource(nombreArchivoFxml));
-            Parent parent = loader.load();
+            FXMLLoader fxmlLoader = new FXMLLoader(AcademiaApplication.class.getResource(fxmlPath));
+            Scene scene = new Scene(fxmlLoader.load());
             Stage stage = new Stage();
-            Scene scene = new Scene(parent);
+            stage.setTitle(title);
             stage.setScene(scene);
-            stage.setTitle(tituloVentana);
-            stage.setResizable(false);
             stage.show();
+
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 }

@@ -85,4 +85,9 @@ public class ModelFactory {
     public boolean validarContrasena(String text, String text1) {
         return academiaConduccion.validarContrasena(text,text1);
     }
+
+    public boolean agregarUsuario(Usuario usuario) {
+        return academiaConduccion.agregarUsuario(usuario);
+
+    }
 }

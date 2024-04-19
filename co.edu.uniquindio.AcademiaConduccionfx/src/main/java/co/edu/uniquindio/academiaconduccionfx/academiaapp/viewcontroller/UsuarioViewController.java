@@ -25,6 +25,22 @@ public class UsuarioViewController {
     private URL location;
 
     @FXML
+    private RadioButton rBtnMayorQue;
+
+    @FXML
+    private Button btnObtenerLetra;
+    @FXML
+    private RadioButton rBtnMenorQue;
+    @FXML
+    private TextField txtObtenerLetra;
+    @FXML
+    private TextField txtObtenerEdad;
+    @FXML
+    private ToggleGroup group1;
+    @FXML
+    private Button btnObtenerXEdad;
+
+    @FXML
     private TableView<Usuario> tableUsuario;
 
     @FXML
@@ -53,7 +69,8 @@ public class UsuarioViewController {
 
     @FXML
     private TextField txtedad;
-
+    @FXML
+    TextField campoTexto;
     @FXML
     private TextField txtnombre;
     @FXML
@@ -69,7 +86,7 @@ public class UsuarioViewController {
 
     }
 
-    
+
     @FXML
     void onAgregar(ActionEvent event) {
         crearUsuario();
@@ -84,11 +101,25 @@ public class UsuarioViewController {
     void onEliminar(ActionEvent event) {
         eliminarUsuario();
     }
+    @FXML
+    void onObtenerXEdad(ActionEvent event) {
+        obtenerPorEdad();
+    }
+    @FXML
+    void obObtenerLetra(ActionEvent event) {
+        obtenerPorLetra();
+    }
+
+
+
+
 
     @FXML
     void initialize() {
         usuarioController = new UsuarioController();
         initView();
+        actualizarTabla();
+        actualizarCampo();
     }
 
     private void initView() {
@@ -97,6 +128,7 @@ public class UsuarioViewController {
         tableUsuario.getItems().clear();
         tableUsuario.setItems(listaUsuarios);
         listenerselection();
+
     }
 
     private void listenerselection() {
@@ -160,7 +192,32 @@ public class UsuarioViewController {
             mostrarMensaje("Notificación cliente", "Campos de texto invalidos", "El cliente se ha creado sin éxito, por favor ingrese los datos correctamente", Alert.AlertType.ERROR);
         }
     }
+    private void actualizarTabla() {
+        TextField campoTexto = new TextField();
+        campoTexto.setPromptText("Escribe aquí para filtrar");
+        campoTexto.textProperty().addListener((observable, oldValue, newValue) -> {
+            ObservableList<Usuario> clientesFiltrados = FXCollections.observableArrayList();
+            for (Usuario usuario : listaUsuarios) {
+                if (usuario.getNombre().toLowerCase().contains(newValue.toLowerCase())) {
+                    clientesFiltrados.add(usuario);
+                }
+            }
+            tableUsuario.setItems(clientesFiltrados);
+        });
+    }
+    private void actualizarCampo() {
+        tableUsuario.setItems(listaUsuarios);
 
+        campoTexto.textProperty().addListener((observable, oldValue, newValue) -> {
+            ObservableList<Usuario> clientesFiltrados = FXCollections.observableArrayList();
+            for (Usuario usuario : listaUsuarios) {
+                if (usuario.getNombre().toLowerCase().contains(newValue.toLowerCase()) || usuario.getApellido().toLowerCase().contains(newValue.toLowerCase()) || String.valueOf( usuario.getEdad()).toLowerCase().contains(newValue.toLowerCase())) {
+                    clientesFiltrados.add(usuario);
+                }
+            }
+            tableUsuario.setItems(clientesFiltrados);
+        });
+    }
     private void eliminarUsuario(){
         if (!txtcedula.getText().isEmpty()){
             Usuario usuario = obtenerUsuario(txtcedula.getText());
@@ -194,19 +251,6 @@ public class UsuarioViewController {
         aler.setContentText(contenido);
         aler.showAndWait();
     }
-
-    private boolean mostrarMensajeConfirmacion(String mensaje) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setHeaderText(null);
-        alert.setTitle("Confirmación");
-        alert.setContentText(mensaje);
-        Optional<ButtonType> action = alert.showAndWait();
-        if (action.get() == ButtonType.OK) {
-            return true;
-        } else {
-            return false;
-        }
-    }
     private boolean validadFormulario(){
         if (txtnombre.getText().isEmpty()){
             return false;
@@ -229,6 +273,41 @@ public class UsuarioViewController {
                 .setCedula(txtcedula.getText())
                 .setApellido(txtapellido.getText())
                 .build();
+    }
+    private void obtenerPorEdad() {
+        ObservableList<Usuario> usuariosFiltrados = FXCollections.observableArrayList();
+        int edadIngresada = Integer.parseInt(txtObtenerEdad.getText());
+
+        if (rBtnMayorQue.isSelected()) {
+            for (Usuario usuario : listaUsuarios) {
+                if (usuario.getEdad() > edadIngresada) {
+                    usuariosFiltrados.add(usuario);
+                }
+            }
+        } else {
+            for (Usuario usuario : listaUsuarios) {
+                if (usuario.getEdad() <= edadIngresada) {
+                    usuariosFiltrados.add(usuario);
+                }
+            }
+        }
+
+        tableUsuario.setItems(usuariosFiltrados);
+    }
+
+
+
+    private void obtenerPorLetra() {
+        ObservableList<Usuario> usuariosFiltrados = FXCollections.observableArrayList();
+        Character letra = txtObtenerLetra.getText().toLowerCase().charAt(0);
+
+        for (Usuario usuario : listaUsuarios) {
+            if (usuario.getNombre().toLowerCase().charAt(0) == Character.toLowerCase(letra)){
+                usuariosFiltrados.add(usuario);
+            }
+        }
+
+        tableUsuario.setItems(usuariosFiltrados);
     }
     private int encontrarIndiceUsuario(Usuario cedula){
         return usuarioController.encontrarIndiceUsuario(cedula);
