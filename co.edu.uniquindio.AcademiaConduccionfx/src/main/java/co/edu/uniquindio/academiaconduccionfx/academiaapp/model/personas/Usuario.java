@@ -1,8 +1,8 @@
-package co.edu.uniquindio.academiaconduccionfx.academiaapp.model;
+package co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas;
 
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.builder.UsuarioBuilder;
 
-public class Usuario {
+public class Usuario extends Persona{
     private String nombre;
     private String apellido;
     private String cedula;

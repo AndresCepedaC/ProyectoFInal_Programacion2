@@ -12,4 +12,6 @@ module co.edu.uniquindio.academiaconduccionfx.academiaapp {
 
     opens co.edu.uniquindio.academiaconduccionfx.academiaapp.controller;
     exports co.edu.uniquindio.academiaconduccionfx.academiaapp.controller;
+    exports co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.empleados;
+    opens co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.empleados to javafx.fxml;
 }

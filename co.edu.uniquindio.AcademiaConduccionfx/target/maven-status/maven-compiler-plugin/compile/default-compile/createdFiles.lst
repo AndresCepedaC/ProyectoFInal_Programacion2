@@ -1,2 +1,4 @@
+co\edu\uniquindio\academiaconduccionfx\academiaapp\viewcontroller\PanelInstructorViewController.class
 co\edu\uniquindio\academiaconduccionfx\academiaapp\model\Enum\CategoriaLicencia.class
+co\edu\uniquindio\academiaconduccionfx\academiaapp\controller\PanelInstructorController.class
 co\edu\uniquindio\academiaconduccionfx\academiaapp\servicios\INavegacion.class

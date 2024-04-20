@@ -1,7 +1,7 @@
 package co.edu.uniquindio.academiaconduccionfx.academiaapp.viewcontroller;
 
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.controller.UsuarioController;
-import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.Usuario;
+import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.Usuario;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,7 +10,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import java.net.URL;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class UsuarioViewController {

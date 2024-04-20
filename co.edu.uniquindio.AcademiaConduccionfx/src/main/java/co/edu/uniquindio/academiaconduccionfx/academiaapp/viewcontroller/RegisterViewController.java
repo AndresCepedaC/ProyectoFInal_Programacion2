@@ -1,12 +1,9 @@
 package co.edu.uniquindio.academiaconduccionfx.academiaapp.viewcontroller;
-import java.net.URL;
 import java.util.Optional;
-import java.util.ResourceBundle;
 
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.controller.RegisterController;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.factory.ModelFactory;
-import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.Sesion;
-import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.Usuario;
+import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -58,7 +55,7 @@ public class RegisterViewController {
                 Usuario usuarioNuevo = construirDatosUsuario();
                 if (registerController.crearUsuario(usuarioNuevo)){
                     limpiarCampos();
-                    mostrarMensajeConfirmacion("El usuario se ha agregado correctamente", "Confirmacion usuario", Alert.AlertType.CONFIRMATION);
+                    mostrarMensajeConfirmacion("El usuario se ha agregado correctamente", "Confirmacion usuario", Alert.AlertType.INFORMATION);
                 }else {
                     mostrarMensajeConfirmacion("El usuario no ha sido agregado correctamente, verifique los datos ingresados", "Error", Alert.AlertType.ERROR);
                 }

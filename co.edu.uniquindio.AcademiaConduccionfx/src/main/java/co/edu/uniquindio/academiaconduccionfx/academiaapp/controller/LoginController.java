@@ -1,7 +1,7 @@
 package co.edu.uniquindio.academiaconduccionfx.academiaapp.controller;
 
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.factory.ModelFactory;
-import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.Usuario;
+import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.Usuario;
 
 public class LoginController {
     ModelFactory modelFactory = ModelFactory.getInstance();

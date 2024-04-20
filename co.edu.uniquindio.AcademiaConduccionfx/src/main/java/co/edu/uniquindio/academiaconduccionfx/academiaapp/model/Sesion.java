@@ -1,6 +1,6 @@
 package co.edu.uniquindio.academiaconduccionfx.academiaapp.model;
 
-import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.Usuario;
+import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.Usuario;
 
 public class Sesion {
 

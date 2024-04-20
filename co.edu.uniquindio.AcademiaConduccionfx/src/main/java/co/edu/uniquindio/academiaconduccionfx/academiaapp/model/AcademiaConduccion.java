@@ -1,5 +1,7 @@
 package co.edu.uniquindio.academiaconduccionfx.academiaapp.model;
 
+import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.Usuario;
+
 import java.util.ArrayList;
 import java.util.List;
 
