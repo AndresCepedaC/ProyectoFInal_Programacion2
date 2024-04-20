@@ -15,23 +15,25 @@ public class AcademiaConduccion {
                                 String apellido,
                                 String cedula,
                                 int edad,
-                                String correo){
+                                String correo,
+                                String password){
         Usuario usuarioEncontrado = obtenerUsuario(cedula);
         if(usuarioEncontrado == null){
-            Usuario usuario = getBuildUsuario(nombre, apellido, cedula, edad, correo);
+            Usuario usuario = getBuildUsuario(nombre, apellido, cedula, edad, correo, password);
             getListaUsuarios().add(usuario);
             return true;
         }else{
             return  false;
         }
     }
-    private Usuario getBuildUsuario(String nombre, String apellido, String cedula, int edad, String correo) {
+    private Usuario getBuildUsuario(String nombre, String apellido, String cedula, int edad, String correo, String password) {
         return Usuario.builder()
                 .setApellido(apellido)
                 .setCedula(cedula)
                 .setCorreo(correo)
                 .setEdad(edad)
                 .setNombre(nombre)
+                .setPassword(password)
                 .build();
     }
     public Usuario obtenerUsuario(String cedula) {

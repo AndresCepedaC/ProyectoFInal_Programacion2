@@ -14,14 +14,13 @@ public class Usuario {
     }
 
     public Usuario(String nombre, String apellido, String cedula, int edad,
-                   String correo) {
+                   String correo, String contrasena) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
         this.edad = edad;
         this.correo = correo;
-
-
+        this.contrasena = contrasena;
     }
 
     public String getNombre() {

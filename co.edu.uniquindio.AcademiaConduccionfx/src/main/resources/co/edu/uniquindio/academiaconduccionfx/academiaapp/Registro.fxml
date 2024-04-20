@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="291.0" prefWidth="486.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.academiaconduccionfx.academiaapp.viewcontroller.RegisterViewController">
+   <children>
+      <VBox layoutX="2.0" prefHeight="291.0" prefWidth="481.0" spacing="3.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="600.0" text="Registro">
+               <font>
+                  <Font name="Cambria Bold" size="23.0" />
+               </font>
+            </Label>
+            <Separator prefHeight="1.0" prefWidth="425.0" />
+            <HBox prefHeight="196.0" prefWidth="481.0">
+               <children>
+                  <VBox prefHeight="192.0" prefWidth="157.0" spacing="8.0">
+                     <children>
+                        <Label alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="319.0" text="Ingrese su nombre:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="305.0" text="Ingrese su apellido:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="168.0" text="Ingrese su edad:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="307.0" text="Ingrese su cedula:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="306.0" text="Ingrese su correo:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="308.0" text="Cree una contrasena:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="307.0" text="Confirme su contrasena:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="235.0" prefWidth="308.0" spacing="3.0">
+                     <children>
+                        <TextField fx:id="txtName" prefHeight="25.0" prefWidth="302.0" />
+                        <TextField fx:id="txtApellido" prefHeight="25.0" prefWidth="301.0" />
+                        <TextField fx:id="txtEdad" prefHeight="25.0" prefWidth="303.0" />
+                        <TextField fx:id="txtID" prefHeight="25.0" prefWidth="341.0" />
+                        <TextField fx:id="txtEmail" prefHeight="25.0" prefWidth="294.0" />
+                        <TextField fx:id="txtPassword" prefHeight="25.0" prefWidth="273.0" />
+                        <TextField fx:id="txtConfirmPassword" prefHeight="25.0" prefWidth="280.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0" />
+            <HBox alignment="CENTER" prefHeight="36.0" prefWidth="345.0">
+               <children>
+                  <Button fx:id="btnRegistro" mnemonicParsing="false" onAction="#onRegistro" prefHeight="30.0" prefWidth="85.0" text="Registrarse" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

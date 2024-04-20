@@ -17,27 +17,30 @@ import javafx.scene.control.TextField;
 public class RegisterViewController {
     RegisterController registerController;
     ModelFactory modelFactory;
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private TextField txtID;
 
     @FXML
-    private TextField txtAllName;
+    private TextField txtConfirmPassword;
+
+    @FXML
+    private TextField txtName;
+
+    @FXML
+    private TextField txtEdad;
 
     @FXML
     private TextField txtEmail;
+
+    @FXML
+    private TextField txtApellido;
 
     @FXML
     private Button btnRegistro;
 
     @FXML
     private TextField txtPassword;
-
     @FXML
     void onRegistro(ActionEvent event) {
         registrarUsuario();
@@ -51,36 +54,65 @@ public class RegisterViewController {
 
     private void registrarUsuario() {
         if (validarFormulario()){
-            Usuario usuario = Usuario.builder()
-                    .setNombre(txtAllName.getText())
-                    .setCorreo(txtEmail.getText())
-                    .setCedula(txtID.getText())
-                    .build();
-            usuario.setContrasena(txtPassword.getText());
-            if (registerController.agregarUsuario(usuario)){
-                mostrarMensajeConfirmacion("El usuario se ha agregado correctamente");
-            }else {
-                mostrarMensajeConfirmacion("El usuario no ha sido agregado correctamente, verifique los datos ingresados");
+            if (confirmarPassword()){
+                Usuario usuarioNuevo = construirDatosUsuario();
+                if (registerController.crearUsuario(usuarioNuevo)){
+                    limpiarCampos();
+                    mostrarMensajeConfirmacion("El usuario se ha agregado correctamente", "Confirmacion usuario", Alert.AlertType.CONFIRMATION);
+                }else {
+                    mostrarMensajeConfirmacion("El usuario no ha sido agregado correctamente, verifique los datos ingresados", "Error", Alert.AlertType.ERROR);
+                }
+            }
+            else {
+                mostrarMensajeConfirmacion("Las contrasenas no son iguales, verifique y vuelva a intentar", "Error", Alert.AlertType.ERROR);
             }
         }
     }
 
+    private boolean confirmarPassword() {
+        if (txtPassword.getText().equalsIgnoreCase(txtConfirmPassword.getText())){
+            return true;
+        }
+        return false;
+    }
+
+    private void limpiarCampos() {
+        txtName.setText("");
+        txtPassword.setText("");
+        txtConfirmPassword.setText("");
+        txtEmail.setText("");
+        txtEdad.setText("");
+        txtID.setText("");
+        txtApellido.setText("");
+    }
+
+    private Usuario construirDatosUsuario(){
+        return Usuario.builder()
+                .setNombre(txtName.getText())
+                .setEdad(Integer.parseInt( txtEdad.getText()))
+                .setCorreo(txtEmail.getText())
+                .setCedula(txtID.getText())
+                .setApellido(txtApellido.getText())
+                .setPassword(txtPassword.getText())
+                .build();
+    }
     private boolean validarFormulario() {
-        if (txtAllName.getText().isEmpty()){
-            return false;
-        }else if (txtEmail.getText().isEmpty()){
-            return false;
-        }else if (txtID.getText().isEmpty()){
-            return false;
-        }else if (txtPassword.getText().isEmpty()){
+        if (txtName.getText().isEmpty() ||
+                txtEmail.getText().isEmpty() ||
+                txtID.getText().isEmpty() ||
+                txtPassword.getText().isEmpty() ||
+                txtEdad.getText().isEmpty() ||
+                txtConfirmPassword.getText().isEmpty() ||
+                txtApellido.getText().isEmpty()) {
             return false;
         }
         return true;
     }
-    private boolean mostrarMensajeConfirmacion(String mensaje) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+
+    private boolean mostrarMensajeConfirmacion(String mensaje, String tipoMensaje, Alert.AlertType alertType) {
+        Alert alert = new Alert(alertType);
         alert.setHeaderText(null);
-        alert.setTitle("Confirmación");
+        alert.setTitle(tipoMensaje);
         alert.setContentText(mensaje);
         Optional<ButtonType> action = alert.showAndWait();
         if (action.get() == ButtonType.OK) {

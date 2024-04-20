@@ -82,8 +82,8 @@ public class ModelFactory {
         return academiaConduccion.encontrarIndiceUsuario(cedula);
     }
 
-    public boolean validarContrasena(String text, String text1) {
-        return academiaConduccion.validarContrasena(text,text1);
+    public boolean validarContrasena(String cedula, String contrasena) {
+        return academiaConduccion.validarContrasena(cedula,contrasena);
     }
 
     public boolean agregarUsuario(Usuario usuario) {

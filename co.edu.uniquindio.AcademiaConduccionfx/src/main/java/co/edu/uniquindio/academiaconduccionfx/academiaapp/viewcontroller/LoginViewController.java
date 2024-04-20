@@ -52,9 +52,12 @@ public class LoginViewController implements INavegacion {
     }
 
 
+
+
     @FXML
     void initialize() {
         loginController = new LoginController();
+        limpiarCampos();
     }
 
     public void loginUsuario() {
@@ -65,7 +68,8 @@ public class LoginViewController implements INavegacion {
                     Usuario usuario = loginController.obtenerUsuario(txtUsuario.getText());
                     Sesion sesion = Sesion.getInstancia();
                     sesion.setUsuario(usuario);
-                    irPantalla("Usuario.fxml", "/panel");
+                    irPantalla("Academia.fxml", "Panel Usuario");
+                    cerrarVentanaActual();
                 } catch (Exception e) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error");
@@ -73,6 +77,9 @@ public class LoginViewController implements INavegacion {
                     alert.setContentText("Sus datos de acceso son errones.");
                     alert.showAndWait();
                 }
+                limpiarCampos();
+            }else {
+                mostrarMensaje("Contrasena invalida", "Error al ingresar", "Error al ingresar, por favor verifique sus datos", Alert.AlertType.ERROR);
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -80,5 +87,21 @@ public class LoginViewController implements INavegacion {
             alert.setHeaderText("Error al iniciar sesión");
             alert.setContentText("Todos los campos son obligatorios para continuar.");
             alert.showAndWait();}
+    }
+
+    private void limpiarCampos() {
+        txtContrasena.setText("");
+        txtUsuario.setText("");
+    }
+    private void cerrarVentanaActual() {
+        Stage stage = (Stage) btnLogin.getScene().getWindow();
+        stage.close();
+    }
+    private void mostrarMensaje(String titulo, String header, String contenido, Alert.AlertType alertType) {
+        Alert aler = new Alert(alertType);
+        aler.setTitle(titulo);
+        aler.setHeaderText(header);
+        aler.setContentText(contenido);
+        aler.showAndWait();
     }
 }

@@ -39,7 +39,8 @@ public class UsuarioViewController {
     private ToggleGroup group1;
     @FXML
     private Button btnObtenerXEdad;
-
+    @FXML
+    private TextField txtPassword;
     @FXML
     private TableView<Usuario> tableUsuario;
 
@@ -118,7 +119,6 @@ public class UsuarioViewController {
     void initialize() {
         usuarioController = new UsuarioController();
         initView();
-        actualizarTabla();
         actualizarCampo();
     }
 
@@ -128,7 +128,7 @@ public class UsuarioViewController {
         tableUsuario.getItems().clear();
         tableUsuario.setItems(listaUsuarios);
         listenerselection();
-
+        limpiarCampos();
     }
 
     private void listenerselection() {
@@ -243,6 +243,7 @@ public class UsuarioViewController {
         txtcedula.setText("");
         txtedad.setText("");
         txtcorreo.setText("");
+        txtPassword.setText("");
     }
     private void mostrarMensaje(String titulo, String header, String contenido, Alert.AlertType alertType) {
         Alert aler = new Alert(alertType);
@@ -263,6 +264,9 @@ public class UsuarioViewController {
         }else if (txtcorreo.getText().isEmpty()) {
             return false;
         }
+        else if (txtPassword.getText().isEmpty()) {
+            return false;
+        }
         return true;
     }
     private Usuario construirDatosUsuario(){
@@ -272,11 +276,19 @@ public class UsuarioViewController {
                 .setCorreo(txtcorreo.getText())
                 .setCedula(txtcedula.getText())
                 .setApellido(txtapellido.getText())
+                .setPassword(txtPassword.getText())
                 .build();
     }
     private void obtenerPorEdad() {
         ObservableList<Usuario> usuariosFiltrados = FXCollections.observableArrayList();
-        int edadIngresada = Integer.parseInt(txtObtenerEdad.getText());
+        int edadIngresada;
+
+        try {
+            edadIngresada = Integer.parseInt(txtObtenerEdad.getText());
+        } catch (NumberFormatException e) {
+            mostrarMensaje("Campo de texto inválido", "Error", "Por favor, verifica el campo de texto.", Alert.AlertType.ERROR);
+            return;
+        }
 
         if (rBtnMayorQue.isSelected()) {
             for (Usuario usuario : listaUsuarios) {
@@ -294,6 +306,7 @@ public class UsuarioViewController {
 
         tableUsuario.setItems(usuariosFiltrados);
     }
+
 
 
 

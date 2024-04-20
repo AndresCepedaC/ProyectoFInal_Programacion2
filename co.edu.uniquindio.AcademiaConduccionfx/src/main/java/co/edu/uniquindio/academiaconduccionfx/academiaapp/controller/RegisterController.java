@@ -8,4 +8,8 @@ public class RegisterController {
     public boolean agregarUsuario(Usuario usuario) {
         return modelFactory.agregarUsuario(usuario);
     }
+
+    public boolean crearUsuario(Usuario usuarioNuevo) {
+        return modelFactory.crearUsuario(usuarioNuevo);
+    }
 }
