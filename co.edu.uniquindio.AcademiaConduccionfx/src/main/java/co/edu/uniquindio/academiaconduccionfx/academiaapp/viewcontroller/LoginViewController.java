@@ -37,13 +37,14 @@ public class LoginViewController implements INavegacion {
     private RadioButton rBtnAdministrador;
 
     @FXML
-    private TextField txtContrasena;
+    private PasswordField txtContrasena;
 
     @FXML
     private RadioButton rBtnInstructor;
     @FXML
     private TextField txtUsuario;
-
+    @FXML
+    private Hyperlink linkRegistrarse;
     @FXML
     void onLogin(ActionEvent event) {
         loginUsuario();
@@ -97,5 +98,11 @@ public class LoginViewController implements INavegacion {
         aler.setHeaderText(header);
         aler.setContentText(contenido);
         aler.showAndWait();
+    }
+    @FXML
+    public void onRegistrarse(ActionEvent actionEvent) {
+        irPantalla("Login/Registro.fxml", "Registro");
+        Stage stage = (Stage) linkRegistrarse.getScene().getWindow();
+        stage.close();
     }
 }

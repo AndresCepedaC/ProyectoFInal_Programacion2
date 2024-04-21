@@ -13,11 +13,12 @@ public class PanelInstructorViewController implements INavegacion {
 
     @FXML
     void onCerrarSesion(ActionEvent event) {
+
         cerrarSesion();
     }
 
     private void cerrarSesion() {
-        irPantalla("Bienvenida.fxml", "Bienvenida");
+        irPantalla("Login/Login.fxml", "Bienvenida");
         Stage stage = (Stage) btnCerrarSesion.getScene().getWindow();
         stage.close();
     }
