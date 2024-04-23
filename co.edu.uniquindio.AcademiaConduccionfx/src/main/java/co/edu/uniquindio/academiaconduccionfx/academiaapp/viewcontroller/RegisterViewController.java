@@ -4,19 +4,17 @@ import java.util.Optional;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.controller.RegisterController;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.factory.ModelFactory;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.Usuario;
+import co.edu.uniquindio.academiaconduccionfx.academiaapp.servicios.INavegacion;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
 
-public class RegisterViewController {
+public class RegisterViewController implements INavegacion {
     RegisterController registerController;
     ModelFactory modelFactory;
-
     @FXML
-    private TextField txtID;
+    private RadioButton rbtnAdministrador;
 
     @FXML
     private TextField txtConfirmPassword;
@@ -25,10 +23,25 @@ public class RegisterViewController {
     private TextField txtName;
 
     @FXML
-    private TextField txtEdad;
+    private RadioButton rbtnSecretaria;
 
     @FXML
     private TextField txtEmail;
+
+    @FXML
+    private TextField txtEdad;
+
+    @FXML
+    private RadioButton rbtnInstructor;
+
+    @FXML
+    private ToggleGroup group1;
+
+    @FXML
+    private TextField txtID;
+
+    @FXML
+    private Button btnRegresar;
 
     @FXML
     private TextField txtApellido;
@@ -38,11 +51,15 @@ public class RegisterViewController {
 
     @FXML
     private TextField txtPassword;
+
     @FXML
     void onRegistro(ActionEvent event) {
         registrarUsuario();
     }
-
+    @FXML
+    void onRegreso(){
+        regresoLogin();
+    }
 
     @FXML
     void initialize() {
@@ -56,6 +73,7 @@ public class RegisterViewController {
                 if (registerController.crearUsuario(usuarioNuevo)){
                     limpiarCampos();
                     mostrarMensajeConfirmacion("El usuario se ha agregado correctamente", "Confirmacion usuario", Alert.AlertType.INFORMATION);
+
                 }else {
                     mostrarMensajeConfirmacion("El usuario no ha sido agregado correctamente, verifique los datos ingresados", "Error", Alert.AlertType.ERROR);
                 }
@@ -81,6 +99,15 @@ public class RegisterViewController {
         txtEdad.setText("");
         txtID.setText("");
         txtApellido.setText("");
+    }
+    private void regresoLogin(){
+        irPantalla("Login/Login.fxml", "");
+        cerrarPantalla();
+    }
+
+    private void cerrarPantalla() {
+        Stage stage = (Stage) btnRegresar.getScene().getWindow();
+        stage.close();
     }
 
     private Usuario construirDatosUsuario(){

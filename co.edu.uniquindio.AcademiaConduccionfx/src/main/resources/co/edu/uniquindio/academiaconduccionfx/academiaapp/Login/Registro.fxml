@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,78 +9,94 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="291.0" prefWidth="486.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.academiaconduccionfx.academiaapp.viewcontroller.RegisterViewController">
+<AnchorPane prefHeight="504.0" prefWidth="911.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.academiaconduccionfx.academiaapp.viewcontroller.RegisterViewController">
    <children>
-      <VBox layoutX="2.0" prefHeight="291.0" prefWidth="481.0" spacing="3.0">
+      <VBox layoutY="92.0" prefHeight="412.0" prefWidth="482.0" spacing="15.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="600.0" text="Registro">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="482.0" text="Registro" textFill="#0598ff">
                <font>
-                  <Font name="Cambria Bold" size="23.0" />
+                  <Font name="Cambria Bold Italic" size="34.0" />
                </font>
             </Label>
             <Separator prefHeight="1.0" prefWidth="425.0" />
             <HBox prefHeight="196.0" prefWidth="481.0">
                <children>
-                  <VBox prefHeight="192.0" prefWidth="157.0" spacing="8.0">
+                  <VBox prefHeight="198.0" prefWidth="269.0" />
+                  <VBox prefHeight="198.0" prefWidth="469.0" spacing="30.0">
                      <children>
-                        <Label alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="319.0" text="Ingrese su nombre:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="305.0" text="Ingrese su apellido:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="168.0" text="Ingrese su edad:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="307.0" text="Ingrese su cedula:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="306.0" text="Ingrese su correo:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="308.0" text="Cree una contrasena:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="307.0" text="Confirme su contrasena:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
+                        <TextField fx:id="txtName" prefHeight="25.0" prefWidth="294.0" promptText="Ingrese su nombre" style="-fx-background-color: trasparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+                        <TextField fx:id="txtApellido" prefHeight="27.0" prefWidth="395.0" promptText="Ingrese su apellido" style="-fx-background-color: trasparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+                        <TextField fx:id="txtID" prefHeight="25.0" prefWidth="294.0" promptText="Ingrese su numero de cedula" style="-fx-background-color: trasparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+                        <TextField fx:id="txtEmail" prefHeight="25.0" prefWidth="294.0" promptText="Ingrese su correo electronico" style="-fx-background-color: trasparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
                      </children>
                   </VBox>
-                  <VBox prefHeight="235.0" prefWidth="308.0" spacing="3.0">
+                  <VBox prefHeight="198.0" prefWidth="275.0">
                      <children>
-                        <TextField fx:id="txtName" prefHeight="25.0" prefWidth="302.0" />
-                        <TextField fx:id="txtApellido" prefHeight="25.0" prefWidth="301.0" />
-                        <TextField fx:id="txtEdad" prefHeight="25.0" prefWidth="303.0" />
-                        <TextField fx:id="txtID" prefHeight="25.0" prefWidth="341.0" />
-                        <TextField fx:id="txtEmail" prefHeight="25.0" prefWidth="294.0" />
-                        <TextField fx:id="txtPassword" prefHeight="25.0" prefWidth="273.0" />
-                        <TextField fx:id="txtConfirmPassword" prefHeight="25.0" prefWidth="280.0" />
+                        <Separator orientation="VERTICAL" prefHeight="249.0" prefWidth="23.0" />
                      </children>
                   </VBox>
+                  <VBox prefHeight="198.0" prefWidth="491.0" spacing="30.0">
+                     <children>
+                        <TextField fx:id="txtEdad" prefHeight="25.0" prefWidth="294.0" promptText="Ingrese su edad" style="-fx-background-color: trasparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+                        <TextField fx:id="txtPassword" prefHeight="25.0" prefWidth="294.0" promptText="Cree una contraseña" style="-fx-background-color: trasparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+                        <TextField fx:id="txtConfirmPassword" prefHeight="25.0" prefWidth="294.0" promptText="Confirme su contraseña" style="-fx-background-color: trasparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="198.0" prefWidth="272.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="19.0" prefWidth="482.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="126.0" text="              " />
+                  <RadioButton fx:id="rbtnAdministrador" mnemonicParsing="false" prefHeight="17.0" prefWidth="212.0" text="Administrador" textFill="#0598ff">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="group1" />
+                     </toggleGroup>
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="rbtnInstructor" mnemonicParsing="false" prefHeight="17.0" prefWidth="174.0" text="Instructor" textFill="#0598ff" toggleGroup="$group1">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="rbtnSecretaria" mnemonicParsing="false" prefHeight="17.0" prefWidth="197.0" text="Secretaria" textFill="#0598ff" toggleGroup="$group1">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </RadioButton>
                </children>
             </HBox>
             <Separator prefWidth="200.0" />
             <HBox alignment="CENTER" prefHeight="36.0" prefWidth="345.0">
                <children>
-                  <Button fx:id="btnRegistro" mnemonicParsing="false" onAction="#onRegistro" prefHeight="30.0" prefWidth="85.0" text="Registrarse" />
+                  <Button fx:id="btnRegistro" mnemonicParsing="false" onAction="#onRegistro" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: #0598FF; -fx-border-color: #FFFFFF;" text="Registrarse" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font></Button>
                </children>
             </HBox>
+            <Button fx:id="btnRegresar" mnemonicParsing="false" onAction="#onRegreso" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: #0598FF; -fx-border-color: #FFFFFF;" text="Regresar" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
          </children>
       </VBox>
+      <AnchorPane layoutX="490.0" prefHeight="504.0" prefWidth="422.0" style="-fx-background-color: #0598FF;">
+         <children>
+            <ImageView fitHeight="329.0" fitWidth="438.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../importarImagenes/IconLogin.gif" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="101.0" fitWidth="102.0" layoutX="176.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="-5.0">
+         <image>
+            <Image url="@../importarImagenes/images.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
