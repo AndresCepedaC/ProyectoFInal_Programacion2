@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="268.0" prefWidth="342.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.academiaconduccionfx.academiaapp.viewcontroller.BienvenidaViewController">
    <children>
-      <TabPane layoutX="-3.0" layoutY="-3.0" prefHeight="312.0" prefWidth="475.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="-3.0" layoutY="-3.0" prefHeight="522.0" prefWidth="922.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Login">
             <content>

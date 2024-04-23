@@ -57,21 +57,15 @@ public class LoginViewController implements INavegacion {
     public void loginUsuario() {
         if (!txtUsuario.getText().isEmpty() && !txtContrasena.getText().isEmpty()){
             if (loginController.validarContrasena(txtUsuario.getText(),txtContrasena.getText())) {
-                try {
-                    Usuario usuario = loginController.obtenerUsuario(txtUsuario.getText());
-                    Sesion sesion = Sesion.getInstancia();
-                    sesion.setUsuario(usuario);
-                    mostrarMensaje("Bienvenido", "Hola " + usuario.getNombre() + "!", "Bienvenido al panel " + usuario.getNombre(), Alert.AlertType.INFORMATION);
-                    irPantalla("PanelInstructor.fxml", "Panel Usuario");
-                    cerrarVentanaActual();
-                } catch (Exception e) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error");
-                    alert.setHeaderText("Error al iniciar sesión");
-                    alert.setContentText("Sus datos de acceso son errones.");
-                    alert.showAndWait();
+                if (rBtnInstructor.isSelected()){
+                    inicioSesion("PanelInstructor.fxml", "Panel instructor");
+                } else if (rBtnAdministrador.isSelected()) {
+                   inicioSesion("PanelAdministrador.fxml", "Panel administrador");
+                } else if (rBtnSecretaria.isSelected()) {
+                    inicioSesion("PanelSecretaria.fxml", "Panel secretaria");
+                }else {
+                    mostrarMensaje("Error", "Error, debe seleccionar un tipo", "Debe seleccionar como que tipo de persona quiere ingresar", Alert.AlertType.ERROR);
                 }
-                limpiarCampos();
             }else {
                 mostrarMensaje("Contrasena invalida", "Error al ingresar",
                         "Error al ingresar, por favor verifique sus datos", Alert.AlertType.ERROR);
@@ -104,5 +98,23 @@ public class LoginViewController implements INavegacion {
         irPantalla("Login/Registro.fxml", "Registro");
         Stage stage = (Stage) linkRegistrarse.getScene().getWindow();
         stage.close();
+    }
+    
+    private void inicioSesion(String fxmlLoader, String titulo){
+        try {
+            Usuario usuario = loginController.obtenerUsuario(txtUsuario.getText());
+            Sesion sesion = Sesion.getInstancia();
+            sesion.setUsuario(usuario);
+            mostrarMensaje("Bienvenido", "Hola " + usuario.getNombre() + "!", "Bienvenido al panel " + usuario.getNombre(), Alert.AlertType.INFORMATION);
+            irPantalla(fxmlLoader, titulo);
+            cerrarVentanaActual();
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error al iniciar sesión");
+            alert.setContentText("Sus datos de acceso son errones.");
+            alert.showAndWait();
+        }
+        limpiarCampos();
     }
 }

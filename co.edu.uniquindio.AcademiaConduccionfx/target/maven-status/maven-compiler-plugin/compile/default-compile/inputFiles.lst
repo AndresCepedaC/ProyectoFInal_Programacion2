@@ -1,5 +1,7 @@
 C:\PROGRAMACION 2\FinalProyect\ProyectoFInal_Programacion2\co.edu.uniquindio.AcademiaConduccionfx\src\main\java\co\edu\uniquindio\academiaconduccionfx\academiaapp\model\personas\empleados\Administrador.java
 C:\PROGRAMACION 2\FinalProyect\ProyectoFInal_Programacion2\co.edu.uniquindio.AcademiaConduccionfx\src\main\java\co\edu\uniquindio\academiaconduccionfx\academiaapp\controller\PanelInstructorController.java
+C:\PROGRAMACION 2\FinalProyect\ProyectoFInal_Programacion2\co.edu.uniquindio.AcademiaConduccionfx\src\main\java\co\edu\uniquindio\academiaconduccionfx\academiaapp\viewcontroller\PanelAdministradorViewController.java
+C:\PROGRAMACION 2\FinalProyect\ProyectoFInal_Programacion2\co.edu.uniquindio.AcademiaConduccionfx\src\main\java\co\edu\uniquindio\academiaconduccionfx\academiaapp\controller\PanelSecretariaController.java
 C:\PROGRAMACION 2\FinalProyect\ProyectoFInal_Programacion2\co.edu.uniquindio.AcademiaConduccionfx\src\main\java\co\edu\uniquindio\academiaconduccionfx\academiaapp\model\personas\Empleado.java
 C:\PROGRAMACION 2\FinalProyect\ProyectoFInal_Programacion2\co.edu.uniquindio.AcademiaConduccionfx\src\main\java\co\edu\uniquindio\academiaconduccionfx\academiaapp\model\Curso.java
 C:\PROGRAMACION 2\FinalProyect\ProyectoFInal_Programacion2\co.edu.uniquindio.AcademiaConduccionfx\src\main\java\co\edu\uniquindio\academiaconduccionfx\academiaapp\controller\AcademiaController.java
@@ -9,12 +11,14 @@ C:\PROGRAMACION 2\FinalProyect\ProyectoFInal_Programacion2\co.edu.uniquindio.Aca
 C:\PROGRAMACION 2\FinalProyect\ProyectoFInal_Programacion2\co.edu.uniquindio.AcademiaConduccionfx\src\main\java\co\edu\uniquindio\academiaconduccionfx\academiaapp\controller\BienvenidaController.java
 C:\PROGRAMACION 2\FinalProyect\ProyectoFInal_Programacion2\co.edu.uniquindio.AcademiaConduccionfx\src\main\java\co\edu\uniquindio\academiaconduccionfx\academiaapp\viewcontroller\AcademiaViewController.java
 C:\PROGRAMACION 2\FinalProyect\ProyectoFInal_Programacion2\co.edu.uniquindio.AcademiaConduccionfx\src\main\java\co\edu\uniquindio\academiaconduccionfx\academiaapp\viewcontroller\RegisterViewController.java
+C:\PROGRAMACION 2\FinalProyect\ProyectoFInal_Programacion2\co.edu.uniquindio.AcademiaConduccionfx\src\main\java\co\edu\uniquindio\academiaconduccionfx\academiaapp\viewcontroller\PanelSecretariaViewController.java
 C:\PROGRAMACION 2\FinalProyect\ProyectoFInal_Programacion2\co.edu.uniquindio.AcademiaConduccionfx\src\main\java\co\edu\uniquindio\academiaconduccionfx\academiaapp\controller\RegisterController.java
 C:\PROGRAMACION 2\FinalProyect\ProyectoFInal_Programacion2\co.edu.uniquindio.AcademiaConduccionfx\src\main\java\co\edu\uniquindio\academiaconduccionfx\academiaapp\HelloController.java
 C:\PROGRAMACION 2\FinalProyect\ProyectoFInal_Programacion2\co.edu.uniquindio.AcademiaConduccionfx\src\main\java\co\edu\uniquindio\academiaconduccionfx\academiaapp\servicios\INavegacion.java
 C:\PROGRAMACION 2\FinalProyect\ProyectoFInal_Programacion2\co.edu.uniquindio.AcademiaConduccionfx\src\main\java\co\edu\uniquindio\academiaconduccionfx\academiaapp\viewcontroller\LoginViewController.java
 C:\PROGRAMACION 2\FinalProyect\ProyectoFInal_Programacion2\co.edu.uniquindio.AcademiaConduccionfx\src\main\java\co\edu\uniquindio\academiaconduccionfx\academiaapp\AcademiaApplication.java
 C:\PROGRAMACION 2\FinalProyect\ProyectoFInal_Programacion2\co.edu.uniquindio.AcademiaConduccionfx\src\main\java\co\edu\uniquindio\academiaconduccionfx\academiaapp\model\personas\Usuario.java
+C:\PROGRAMACION 2\FinalProyect\ProyectoFInal_Programacion2\co.edu.uniquindio.AcademiaConduccionfx\src\main\java\co\edu\uniquindio\academiaconduccionfx\academiaapp\controller\PanelAdministradorController.java
 C:\PROGRAMACION 2\FinalProyect\ProyectoFInal_Programacion2\co.edu.uniquindio.AcademiaConduccionfx\src\main\java\co\edu\uniquindio\academiaconduccionfx\academiaapp\viewcontroller\PanelInstructorViewController.java
 C:\PROGRAMACION 2\FinalProyect\ProyectoFInal_Programacion2\co.edu.uniquindio.AcademiaConduccionfx\src\main\java\co\edu\uniquindio\academiaconduccionfx\academiaapp\model\personas\empleados\Secretaria.java
 C:\PROGRAMACION 2\FinalProyect\ProyectoFInal_Programacion2\co.edu.uniquindio.AcademiaConduccionfx\src\main\java\co\edu\uniquindio\academiaconduccionfx\academiaapp\controller\UsuarioController.java

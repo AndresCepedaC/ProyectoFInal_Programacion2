@@ -12,7 +12,6 @@ public class AcademiaApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(AcademiaApplication.class.getResource("Login/Login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("App Academia de Conduccion");
         stage.setScene(scene);
         stage.show();
     }

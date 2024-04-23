@@ -1,8 +1,12 @@
+co\edu\uniquindio\academiaconduccionfx\academiaapp\controller\PanelSecretariaController.class
 co\edu\uniquindio\academiaconduccionfx\academiaapp\model\personas\Empleado.class
 co\edu\uniquindio\academiaconduccionfx\academiaapp\viewcontroller\PanelInstructorViewController.class
+co\edu\uniquindio\academiaconduccionfx\academiaapp\controller\PanelAdministradorController.class
+co\edu\uniquindio\academiaconduccionfx\academiaapp\viewcontroller\PanelAdministradorViewController.class
 co\edu\uniquindio\academiaconduccionfx\academiaapp\model\Enum\CategoriaLicencia.class
 co\edu\uniquindio\academiaconduccionfx\academiaapp\model\personas\Persona.class
 co\edu\uniquindio\academiaconduccionfx\academiaapp\model\personas\empleados\Administrador.class
+co\edu\uniquindio\academiaconduccionfx\academiaapp\viewcontroller\PanelSecretariaViewController.class
 co\edu\uniquindio\academiaconduccionfx\academiaapp\controller\PanelInstructorController.class
 co\edu\uniquindio\academiaconduccionfx\academiaapp\model\personas\Usuario.class
 co\edu\uniquindio\academiaconduccionfx\academiaapp\servicios\INavegacion.class
