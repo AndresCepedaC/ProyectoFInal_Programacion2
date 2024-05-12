@@ -1,5 +1,6 @@
 package co.edu.uniquindio.academiaconduccionfx.academiaapp.viewcontroller;
 
+import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.Sesion;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.servicios.INavegacion;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,13 +14,6 @@ public class PanelInstructorViewController implements INavegacion {
 
     @FXML
     void onCerrarSesion(ActionEvent event) {
-
-        cerrarSesion();
-    }
-
-    private void cerrarSesion() {
-        irPantalla("Login/Login.fxml", "Bienvenida");
-        Stage stage = (Stage) btnCerrarSesion.getScene().getWindow();
-        stage.close();
+        cerrarSesion("Login/Login.fxml", "Bienvenida", btnCerrarSesion);
     }
 }

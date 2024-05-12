@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -8,10 +9,13 @@
 
 <AnchorPane prefHeight="694.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.academiaconduccionfx.academiaapp.viewcontroller.PanelInstructorViewController">
    <children>
-      <Button fx:id="btnCerrarSesion" layoutX="8.0" layoutY="662.0" mnemonicParsing="false" onAction="#onCerrarSesion" prefHeight="25.0" prefWidth="142.0" text="Cerrar sesion" />
+      <Button fx:id="btnCerrarSesion" layoutX="8.0" layoutY="662.0" mnemonicParsing="false" onAction="#onCerrarSesion" prefHeight="25.0" prefWidth="142.0" style="-fx-background-color: #0598ff; -fx-border-color: #FFFFFF;" text="Cerrar sesion" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
       <TabPane prefHeight="665.0" prefWidth="663.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Untitled Tab 1">
+          <Tab style="-fx-background-color: #FFFFFF; -fx-border-color: black;" text="Usuario">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -25,11 +29,40 @@
                 </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Untitled Tab 2">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
+            <Tab style="-fx-background-color: #FFFFFF; -fx-border-color: black;" text="Inscripciones">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab style="-fx-background-color: #FFFFFF; -fx-border-color: black;" text="Usuario">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane layoutY="-1.0" orientation="VERTICAL" prefHeight="527.0" prefWidth="663.0">
+                           <items>
+                              <fx:include source="model/Usuario.fxml" />
+                           </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab style="-fx-background-color: #FFFFFF; -fx-border-color: black;" text="Usuario">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane layoutY="-1.0" orientation="VERTICAL" prefHeight="527.0" prefWidth="663.0">
+                           <items>
+                              <fx:include source="model/Usuario.fxml" />
+                           </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
         </tabs>
       </TabPane>
    </children>

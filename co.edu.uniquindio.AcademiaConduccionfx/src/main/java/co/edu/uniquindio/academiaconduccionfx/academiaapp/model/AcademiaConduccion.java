@@ -1,16 +1,64 @@
 package co.edu.uniquindio.academiaconduccionfx.academiaapp.model;
 
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.Usuario;
+import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.empleados.Administrador;
+import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.empleados.Instructor;
+import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.empleados.Secretaria;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AcademiaConduccion {
     List<Usuario> listaUsuarios = new ArrayList<>();
-
+    List<Administrador> listaAdministradores = new ArrayList<>();
+    List<Secretaria> listaSecretarias = new ArrayList<>();
+    List<Instructor> listaInstructores = new ArrayList<>();
+    List<Curso> listaCursos = new ArrayList<>();
+    List<Inscripcion> listaInscripciones = new ArrayList<>();
     private String nombre;
 
     public AcademiaConduccion() {
+        this.nombre = "Academia Conduccion Universidad del Quindio";
+    }
+
+    public List<Administrador> getListaAdministradores() {
+        return listaAdministradores;
+    }
+
+    public void setListaAdministradores(List<Administrador> listaAdministradores) {
+        this.listaAdministradores = listaAdministradores;
+    }
+
+    public List<Secretaria> getListaSecretarias() {
+        return listaSecretarias;
+    }
+
+    public void setListaSecretarias(List<Secretaria> listaSecretarias) {
+        this.listaSecretarias = listaSecretarias;
+    }
+
+    public List<Instructor> getListaInstructores() {
+        return listaInstructores;
+    }
+
+    public void setListaInstructores(List<Instructor> listaInstructores) {
+        this.listaInstructores = listaInstructores;
+    }
+
+    public List<Curso> getListaCursos() {
+        return listaCursos;
+    }
+
+    public void setListaCursos(List<Curso> listaCursos) {
+        this.listaCursos = listaCursos;
+    }
+
+    public List<Inscripcion> getListaInscripciones() {
+        return listaInscripciones;
+    }
+
+    public void setListaInscripciones(List<Inscripcion> listaInscripciones) {
+        this.listaInscripciones = listaInscripciones;
     }
 
     public boolean crearUsuario(String nombre,
@@ -55,14 +103,6 @@ public class AcademiaConduccion {
 
     public void setListaUsuarios(List<Usuario> listaUsuarios) {
         this.listaUsuarios = listaUsuarios;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public boolean crearUsuario(Usuario usuario) {

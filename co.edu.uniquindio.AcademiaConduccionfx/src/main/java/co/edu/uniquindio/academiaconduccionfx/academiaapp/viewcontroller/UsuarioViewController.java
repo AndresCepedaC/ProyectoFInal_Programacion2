@@ -109,11 +109,6 @@ public class UsuarioViewController {
     void obObtenerLetra(ActionEvent event) {
         obtenerPorLetra();
     }
-
-
-
-
-
     @FXML
     void initialize() {
         usuarioController = new UsuarioController();
