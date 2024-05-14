@@ -47,7 +47,7 @@ public class LoginViewController implements INavegacion {
     private Hyperlink linkRegistrarse;
     @FXML
     void onLogin(ActionEvent event) {
-        loginUsuario();
+        login();
     }
     @FXML
     void initialize() {
@@ -64,7 +64,7 @@ public class LoginViewController implements INavegacion {
                 } else if (rBtnSecretaria.isSelected()) {
                     inicioSesion("PanelSecretaria.fxml", "Panel secretaria");
                 }else {
-                    mostrarMensaje("Error", "Error, debe seleccionar un tipo", "Debe seleccionar como que tipo de persona quiere ingresar", Alert.AlertType.ERROR);
+                    mostrarMensaje("Error", "Error", "Debe seleccionar como que tipo de persona quiere ingresar", Alert.AlertType.ERROR);
                 }
             }else {
                 mostrarMensaje("Contrasena invalida", "Error al ingresar",
@@ -76,6 +76,50 @@ public class LoginViewController implements INavegacion {
             alert.setHeaderText("Error al iniciar sesión");
             alert.setContentText("Todos los campos son obligatorios para continuar.");
             alert.showAndWait();}
+    }
+    public void login() {
+        if (rBtnInstructor.isSelected()) {
+            if (validarFormulario("instructor")) {
+                if (loginController.validarContrasenaInstructor(txtUsuario.getText(), txtContrasena.getText())) {
+                    inicioSesion("PanelInstructor.fxml", "Panel instructor");
+                } else {
+                    mostrarMensaje("Error al iniciar sesión", "Error al iniciar sesión", "Error al iniciar sesión, por favor verifique sus datos", Alert.AlertType.ERROR);
+                }
+            }
+        } else if (rBtnAdministrador.isSelected()) {
+            if (validarFormulario("administrador")) {
+                if (loginController.validarContrasenaAdministrador(txtUsuario.getText(), txtContrasena.getText())) {
+                    inicioSesion("PanelAdministrador.fxml", "Panel administrador");
+                } else {
+                    mostrarMensaje("Error al iniciar sesión", "Error al iniciar sesión", "Error al iniciar sesión, por favor verifique sus datos", Alert.AlertType.ERROR);
+                }
+            }
+        } else if (rBtnSecretaria.isSelected()) {
+            if (validarFormulario("secretaria")) {
+                if (loginController.validarContrasenaSecretaria(txtUsuario.getText(), txtContrasena.getText())) {
+                    inicioSesion("PanelSecretaria.fxml", "Panel secretaria");
+                } else {
+                    mostrarMensaje("Error al iniciar sesión", "Error al iniciar sesión", "Error al iniciar sesión, por favor verifique sus datos", Alert.AlertType.ERROR);
+                }
+            }
+        } else {
+            mostrarMensaje("Error", "Error, debe seleccionar un tipo", "Debe seleccionar como qué tipo de persona quiere ingresar", Alert.AlertType.ERROR);
+        }
+    }
+
+    private boolean validarFormulario(String tipoUsuario) {
+        if (txtUsuario.getText().isEmpty() || txtContrasena.getText().isEmpty()) {
+            mostrarMensaje("Error", "Error al iniciar sesión", "Todos los campos son obligatorios para continuar.", Alert.AlertType.ERROR);
+            return false;
+        }
+        // Aquí podrías agregar más validaciones específicas según el tipo de usuario si es necesario
+        return true;
+    }
+    private boolean validarFormulario() {
+        if (txtUsuario.getText().isEmpty() || txtContrasena.getText().isEmpty()) {
+            return false;
+        }
+        return true;
     }
 
     private void limpiarCampos() {
@@ -96,8 +140,7 @@ public class LoginViewController implements INavegacion {
     @FXML
     public void onRegistrarse(ActionEvent actionEvent) {
         irPantalla("Login/Registro.fxml", "Registro");
-        Stage stage = (Stage) linkRegistrarse.getScene().getWindow();
-        stage.close();
+        cerrarVentanaActual();
     }
     
     private void inicioSesion(String fxmlLoader, String titulo){

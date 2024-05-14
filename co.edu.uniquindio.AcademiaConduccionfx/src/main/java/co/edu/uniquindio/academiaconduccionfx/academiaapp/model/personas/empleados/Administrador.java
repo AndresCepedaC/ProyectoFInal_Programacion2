@@ -11,6 +11,10 @@ public class Administrador extends Empleado {
         this.password = password;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public static AdministradorBuilder builder() {
         return new AdministradorBuilder();
     }

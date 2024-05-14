@@ -11,6 +11,10 @@ public class Secretaria extends Empleado {
         this.password = password;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public static SecretariaBuilder builder() {
         return new SecretariaBuilder();
     }

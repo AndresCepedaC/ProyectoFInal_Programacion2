@@ -18,8 +18,6 @@ public interface INavegacion {
             stage.setTitle(title);
             stage.setScene(scene);
             stage.show();
-
-            
         } catch (Exception e) {
             e.printStackTrace();
         }

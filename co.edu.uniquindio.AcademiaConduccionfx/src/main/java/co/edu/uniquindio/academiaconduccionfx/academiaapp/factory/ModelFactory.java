@@ -210,4 +210,16 @@ public class ModelFactory {
         return academiaConduccion.agregarUsuario(usuario);
 
     }
+
+    public boolean validarContrasenaInstructor(String usuario, String contrasena) {
+        return academiaConduccion.validarContrasenaInstructor(usuario, contrasena);
+    }
+
+    public boolean validarContrasenaAdministrador(String usuario, String contrasena) {
+        return academiaConduccion.validarContrasenaAdministrador(usuario, contrasena);
+    }
+
+    public boolean validarContrasenaSecretaria(String usuario, String contrasena) {
+        return academiaConduccion.validarContrasenaSecretaria(usuario, contrasena);
+    }
 }

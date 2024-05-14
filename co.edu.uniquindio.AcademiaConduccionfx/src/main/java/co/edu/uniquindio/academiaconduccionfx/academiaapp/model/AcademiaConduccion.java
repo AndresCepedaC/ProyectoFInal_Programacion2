@@ -150,4 +150,32 @@ public class AcademiaConduccion {
         }
         return false;
     }
+
+    public boolean validarContrasenaInstructor(String usuario, String contrasena) {
+        boolean flag = false;
+        for (Instructor instructor : listaInstructores) {
+            if (instructor.getCedula().equalsIgnoreCase(usuario) && instructor.getPassword().equalsIgnoreCase(contrasena)) {
+                flag = true;
+            }
+        }
+        return flag;
+    }
+    public boolean validarContrasenaSecretaria(String usuario, String contrasena) {
+        boolean flag = false;
+        for (Secretaria secretaria : listaSecretarias) {
+            if (secretaria.getCedula().equalsIgnoreCase(usuario) && secretaria.getPassword().equalsIgnoreCase(contrasena)) {
+                flag = true;
+            }
+        }
+        return flag;
+    }
+    public boolean validarContrasenaAdministrador(String usuario, String contrasena) {
+        boolean flag = false;
+        for (Administrador administrador : listaAdministradores) {
+            if (administrador.getCedula().equalsIgnoreCase(usuario) && administrador.getPassword().equalsIgnoreCase(contrasena)) {
+                flag = true;
+            }
+        }
+        return flag;
+    }
 }
