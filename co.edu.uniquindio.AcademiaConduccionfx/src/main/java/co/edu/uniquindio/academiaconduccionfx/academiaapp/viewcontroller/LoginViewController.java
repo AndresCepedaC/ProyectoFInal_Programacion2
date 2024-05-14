@@ -14,6 +14,7 @@ import co.edu.uniquindio.academiaconduccionfx.academiaapp.servicios.INavegacion;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.skin.CellSkinBase;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
@@ -57,65 +58,56 @@ public class LoginViewController implements INavegacion {
         loginController = new LoginController();
         limpiarCampos();
     }
-    public void loginUsuario() {
-        if (!txtUsuario.getText().isEmpty() && !txtContrasena.getText().isEmpty()){
-            if (loginController.validarContrasena(txtUsuario.getText(),txtContrasena.getText())) {
-                if (rBtnInstructor.isSelected()){
-                    inicioSesion("PanelInstructor.fxml", "Panel instructor");
-                } else if (rBtnAdministrador.isSelected()) {
-                   inicioSesion("PanelAdministrador.fxml", "Panel administrador");
-                } else if (rBtnSecretaria.isSelected()) {
-                    inicioSesion("PanelSecretaria.fxml", "Panel secretaria");
-                }else {
-                    mostrarMensaje("Error", "Error", "Debe seleccionar como que tipo de persona quiere ingresar", Alert.AlertType.ERROR);
-                }
-            }else {
-                mostrarMensaje("Contrasena invalida", "Error al ingresar",
-                        "Error al ingresar, por favor verifique sus datos", Alert.AlertType.ERROR);
-            }
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Error al iniciar sesión");
-            alert.setContentText("Todos los campos son obligatorios para continuar.");
-            alert.showAndWait();}
-    }
     public void login() {
         if (rBtnInstructor.isSelected()) {
             if (validarFormulario("instructor")) {
-                if (loginController.validarContrasenaInstructor(txtUsuario.getText(), txtContrasena.getText())) {
-                    cerrarVentanaActual();
-                    irPantalla("PanelInstructor.fxml", "Panel instructor");
-                    Instructor instructor = loginController.encontrarInstructorID(txtUsuario.getText());
-                    mostrarMensaje("Bienvenido", "Bienvenido", "Bienvenido "+instructor.getNombre(), Alert.AlertType.INFORMATION);
-                } else {
-                    mostrarMensaje("Error al iniciar sesión", "Error al iniciar sesión", "Error al iniciar sesión, por favor verifique sus datos", Alert.AlertType.ERROR);
-                }
+                inicioSesionInstructor();
             }
         } else if (rBtnAdministrador.isSelected()) {
             if (validarFormulario("administrador")) {
-                if (loginController.validarContrasenaAdministrador(txtUsuario.getText(), txtContrasena.getText())) {
-                    cerrarVentanaActual();
-                    irPantalla("PanelAdministrador.fxml", "Panel administrador");
-                    Administrador administrador = loginController.encontrarAdministradorID(txtUsuario.getText());
-                    mostrarMensaje("Bienvenido", "Bienvenido", "Bienvenido "+administrador.getNombre(), Alert.AlertType.INFORMATION);
-                } else {
-                    mostrarMensaje("Error al iniciar sesión", "Error al iniciar sesión", "Error al iniciar sesión, por favor verifique sus datos", Alert.AlertType.ERROR);
-                }
+                inicioSesionAdministrador();
             }
         } else if (rBtnSecretaria.isSelected()) {
             if (validarFormulario("secretaria")) {
-                if (loginController.validarContrasenaSecretaria(txtUsuario.getText(), txtContrasena.getText())) {
-                    cerrarVentanaActual();
-                    irPantalla("PanelSecretaria.fxml", "Panel secretaria");
-                    Secretaria secretaria = loginController.encontrarSecretariaID(txtUsuario.getText());
-                    mostrarMensaje("Bienvenido", "Bienvenido", "Bienvenido "+secretaria.getNombre(), Alert.AlertType.INFORMATION);
-                } else {
-                    mostrarMensaje("Error al iniciar sesión", "Error al iniciar sesión", "Error al iniciar sesión, por favor verifique sus datos", Alert.AlertType.ERROR);
-                }
+                inicioSesionSecretaria();
             }
         } else {
-            mostrarMensaje("Error", "Error, debe seleccionar un tipo", "Debe seleccionar como qué tipo de persona quiere ingresar", Alert.AlertType.ERROR);
+            mostrarMensaje("Error", "Error, debe seleccionar un tipo",
+                    "Debe seleccionar como qué tipo de persona quiere ingresar",
+                    Alert.AlertType.ERROR);
+        }
+    }
+
+    private void inicioSesionSecretaria() {
+        if (loginController.validarContrasenaSecretaria(txtUsuario.getText(), txtContrasena.getText())) {
+            cerrarVentanaActual();
+            irPantalla("PanelSecretaria.fxml", "Panel secretaria");
+            Secretaria secretaria = loginController.encontrarSecretariaID(txtUsuario.getText());
+            mostrarMensaje("Bienvenido", "Bienvenido", "Bienvenido "+secretaria.getNombre(), Alert.AlertType.INFORMATION);
+        } else {
+            mostrarMensaje("Error al iniciar sesión", "Error al iniciar sesión", "Error al iniciar sesión, por favor verifique sus datos", Alert.AlertType.ERROR);
+        }
+    }
+
+    private void inicioSesionAdministrador() {
+        if (loginController.validarContrasenaAdministrador(txtUsuario.getText(), txtContrasena.getText())) {
+            cerrarVentanaActual();
+            irPantalla("PanelAdministrador.fxml", "Panel administrador");
+            Administrador administrador = loginController.encontrarAdministradorID(txtUsuario.getText());
+            mostrarMensaje("Bienvenido", "Bienvenido", "Bienvenido "+administrador.getNombre(), Alert.AlertType.INFORMATION);
+        } else {
+            mostrarMensaje("Error al iniciar sesión", "Error al iniciar sesión", "Error al iniciar sesión, por favor verifique sus datos", Alert.AlertType.ERROR);
+        }
+    }
+
+    private void inicioSesionInstructor() {
+        if (loginController.validarContrasenaInstructor(txtUsuario.getText(), txtContrasena.getText())) {
+            cerrarVentanaActual();
+            irPantalla("PanelInstructor.fxml", "Panel instructor");
+            Instructor instructor = loginController.encontrarInstructorID(txtUsuario.getText());
+            mostrarMensaje("Bienvenido", "Bienvenido", "Bienvenido "+instructor.getNombre(), Alert.AlertType.INFORMATION);
+        } else {
+            mostrarMensaje("Error al iniciar sesión", "Error al iniciar sesión", "Error al iniciar sesión, por favor verifique sus datos", Alert.AlertType.ERROR);
         }
     }
 
@@ -152,23 +144,5 @@ public class LoginViewController implements INavegacion {
     public void onRegistrarse(ActionEvent actionEvent) {
         irPantalla("Login/Registro.fxml", "Registro");
         cerrarVentanaActual();
-    }
-    
-    private void inicioSesion(String fxmlLoader, String titulo){
-        try {
-            Usuario usuario = loginController.obtenerUsuario(txtUsuario.getText());
-            Sesion sesion = Sesion.getInstancia();
-            sesion.setUsuario(usuario);
-            mostrarMensaje("Bienvenido", "Hola " + usuario.getNombre() + "!", "Bienvenido al panel " + usuario.getNombre(), Alert.AlertType.INFORMATION);
-            irPantalla(fxmlLoader, titulo);
-            cerrarVentanaActual();
-        } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Error al iniciar sesión");
-            alert.setContentText("Sus datos de acceso son erroneos.");
-            alert.showAndWait();
-        }
-        limpiarCampos();
     }
 }
