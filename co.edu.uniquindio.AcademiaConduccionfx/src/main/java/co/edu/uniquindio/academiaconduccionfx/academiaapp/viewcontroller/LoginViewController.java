@@ -7,6 +7,9 @@ import co.edu.uniquindio.academiaconduccionfx.academiaapp.controller.LoginContro
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.factory.ModelFactory;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.Sesion;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.Usuario;
+import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.empleados.Administrador;
+import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.empleados.Instructor;
+import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.empleados.Secretaria;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.servicios.INavegacion;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -81,7 +84,10 @@ public class LoginViewController implements INavegacion {
         if (rBtnInstructor.isSelected()) {
             if (validarFormulario("instructor")) {
                 if (loginController.validarContrasenaInstructor(txtUsuario.getText(), txtContrasena.getText())) {
-                    inicioSesion("PanelInstructor.fxml", "Panel instructor");
+                    cerrarVentanaActual();
+                    irPantalla("PanelInstructor.fxml", "Panel instructor");
+                    Instructor instructor = loginController.encontrarInstructorID(txtUsuario.getText());
+                    mostrarMensaje("Bienvenido", "Bienvenido", "Bienvenido "+instructor.getNombre(), Alert.AlertType.INFORMATION);
                 } else {
                     mostrarMensaje("Error al iniciar sesión", "Error al iniciar sesión", "Error al iniciar sesión, por favor verifique sus datos", Alert.AlertType.ERROR);
                 }
@@ -89,7 +95,10 @@ public class LoginViewController implements INavegacion {
         } else if (rBtnAdministrador.isSelected()) {
             if (validarFormulario("administrador")) {
                 if (loginController.validarContrasenaAdministrador(txtUsuario.getText(), txtContrasena.getText())) {
-                    inicioSesion("PanelAdministrador.fxml", "Panel administrador");
+                    cerrarVentanaActual();
+                    irPantalla("PanelAdministrador.fxml", "Panel administrador");
+                    Administrador administrador = loginController.encontrarAdministradorID(txtUsuario.getText());
+                    mostrarMensaje("Bienvenido", "Bienvenido", "Bienvenido "+administrador.getNombre(), Alert.AlertType.INFORMATION);
                 } else {
                     mostrarMensaje("Error al iniciar sesión", "Error al iniciar sesión", "Error al iniciar sesión, por favor verifique sus datos", Alert.AlertType.ERROR);
                 }
@@ -97,7 +106,10 @@ public class LoginViewController implements INavegacion {
         } else if (rBtnSecretaria.isSelected()) {
             if (validarFormulario("secretaria")) {
                 if (loginController.validarContrasenaSecretaria(txtUsuario.getText(), txtContrasena.getText())) {
-                    inicioSesion("PanelSecretaria.fxml", "Panel secretaria");
+                    cerrarVentanaActual();
+                    irPantalla("PanelSecretaria.fxml", "Panel secretaria");
+                    Secretaria secretaria = loginController.encontrarSecretariaID(txtUsuario.getText());
+                    mostrarMensaje("Bienvenido", "Bienvenido", "Bienvenido "+secretaria.getNombre(), Alert.AlertType.INFORMATION);
                 } else {
                     mostrarMensaje("Error al iniciar sesión", "Error al iniciar sesión", "Error al iniciar sesión, por favor verifique sus datos", Alert.AlertType.ERROR);
                 }
@@ -112,7 +124,6 @@ public class LoginViewController implements INavegacion {
             mostrarMensaje("Error", "Error al iniciar sesión", "Todos los campos son obligatorios para continuar.", Alert.AlertType.ERROR);
             return false;
         }
-        // Aquí podrías agregar más validaciones específicas según el tipo de usuario si es necesario
         return true;
     }
     private boolean validarFormulario() {
@@ -155,7 +166,7 @@ public class LoginViewController implements INavegacion {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Error al iniciar sesión");
-            alert.setContentText("Sus datos de acceso son errones.");
+            alert.setContentText("Sus datos de acceso son erroneos.");
             alert.showAndWait();
         }
         limpiarCampos();

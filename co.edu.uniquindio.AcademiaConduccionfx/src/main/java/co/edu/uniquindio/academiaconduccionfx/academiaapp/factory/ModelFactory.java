@@ -222,4 +222,16 @@ public class ModelFactory {
     public boolean validarContrasenaSecretaria(String usuario, String contrasena) {
         return academiaConduccion.validarContrasenaSecretaria(usuario, contrasena);
     }
+
+    public Secretaria encontrarSecretariaID(String text) {
+        return academiaConduccion.encontrarSecretariaID(text);
+    }
+
+    public Administrador encontrarAdministradorID(String text) {
+        return academiaConduccion.encontrarAdministradorID(text);
+    }
+
+    public Instructor encontrarInstructorID(String text) {
+        return academiaConduccion.encontrarInstructorID(text);
+    }
 }

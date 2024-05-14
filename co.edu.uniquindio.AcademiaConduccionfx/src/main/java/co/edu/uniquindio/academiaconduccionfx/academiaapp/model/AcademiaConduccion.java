@@ -178,4 +178,31 @@ public class AcademiaConduccion {
         }
         return flag;
     }
+
+    public Secretaria encontrarSecretariaID(String text) {
+        for (Secretaria secretaria : listaSecretarias) {
+            if (secretaria.getCedula().equalsIgnoreCase(text)) {
+                return secretaria;
+            }
+        }
+        return null;
+    }
+
+    public Administrador encontrarAdministradorID(String text) {
+        for (Administrador administrador : listaAdministradores) {
+            if (administrador.getCedula().equalsIgnoreCase(text)) {
+                return administrador;
+            }
+        }
+        return null;
+    }
+
+    public Instructor encontrarInstructorID(String text) {
+        for (Instructor instructor : listaInstructores) {
+            if (instructor.getCedula().equalsIgnoreCase(text)) {
+                return instructor;
+            }
+        }
+        return null;
+    }
 }
