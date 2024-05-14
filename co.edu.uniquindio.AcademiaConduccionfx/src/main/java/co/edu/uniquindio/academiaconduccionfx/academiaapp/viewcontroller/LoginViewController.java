@@ -24,25 +24,18 @@ public class LoginViewController implements INavegacion {
     ModelFactory modelFactory;
     @FXML
     private ResourceBundle resources;
-
     @FXML
     private URL location;
-
     @FXML
     private ToggleGroup Group1;
-
     @FXML
     private RadioButton rBtnSecretaria;
-
     @FXML
     private Button btnLogin;
-
     @FXML
     private RadioButton rBtnAdministrador;
-
     @FXML
     private PasswordField txtContrasena;
-
     @FXML
     private RadioButton rBtnInstructor;
     @FXML
@@ -54,30 +47,44 @@ public class LoginViewController implements INavegacion {
         login();
     }
     @FXML
+    public void onRegistrarse(ActionEvent actionEvent) {
+        irPantalla("Login/Registro.fxml", "Registro");
+        cerrarVentanaActual();
+    }
+    @FXML
     void initialize() {
         loginController = new LoginController();
         limpiarCampos();
     }
     public void login() {
+        String dato = obtenerTipo();
+        if (validarFormulario()) {
+            switch (dato) {
+                case "instructor":
+                    inicioSesionInstructor();
+                    break;
+                case "administrador":
+                    inicioSesionAdministrador();
+
+                    break;
+                case "secretaria":
+                    inicioSesionSecretaria();
+                    break;
+            }
+        }else mostrarMensaje("Error", "Error, debe rellenar todos los campos",
+                "Debe rellenar todos los campos y elegir el tipo.",Alert.AlertType.ERROR);
+    }
+    private String obtenerTipo() {
         if (rBtnInstructor.isSelected()) {
-            if (validarFormulario("instructor")) {
-                inicioSesionInstructor();
-            }
+            return "instructor";
         } else if (rBtnAdministrador.isSelected()) {
-            if (validarFormulario("administrador")) {
-                inicioSesionAdministrador();
-            }
+            return "administrador";
         } else if (rBtnSecretaria.isSelected()) {
-            if (validarFormulario("secretaria")) {
-                inicioSesionSecretaria();
-            }
+            return "secretaria";
         } else {
-            mostrarMensaje("Error", "Error, debe seleccionar un tipo",
-                    "Debe seleccionar como qué tipo de persona quiere ingresar",
-                    Alert.AlertType.ERROR);
+            return null;
         }
     }
-
     private void inicioSesionSecretaria() {
         if (loginController.validarContrasenaSecretaria(txtUsuario.getText(), txtContrasena.getText())) {
             cerrarVentanaActual();
@@ -88,7 +95,6 @@ public class LoginViewController implements INavegacion {
             mostrarMensaje("Error al iniciar sesión", "Error al iniciar sesión", "Error al iniciar sesión, por favor verifique sus datos", Alert.AlertType.ERROR);
         }
     }
-
     private void inicioSesionAdministrador() {
         if (loginController.validarContrasenaAdministrador(txtUsuario.getText(), txtContrasena.getText())) {
             cerrarVentanaActual();
@@ -99,7 +105,6 @@ public class LoginViewController implements INavegacion {
             mostrarMensaje("Error al iniciar sesión", "Error al iniciar sesión", "Error al iniciar sesión, por favor verifique sus datos", Alert.AlertType.ERROR);
         }
     }
-
     private void inicioSesionInstructor() {
         if (loginController.validarContrasenaInstructor(txtUsuario.getText(), txtContrasena.getText())) {
             cerrarVentanaActual();
@@ -110,7 +115,6 @@ public class LoginViewController implements INavegacion {
             mostrarMensaje("Error al iniciar sesión", "Error al iniciar sesión", "Error al iniciar sesión, por favor verifique sus datos", Alert.AlertType.ERROR);
         }
     }
-
     private boolean validarFormulario(String tipoUsuario) {
         if (txtUsuario.getText().isEmpty() || txtContrasena.getText().isEmpty()) {
             mostrarMensaje("Error", "Error al iniciar sesión", "Todos los campos son obligatorios para continuar.", Alert.AlertType.ERROR);
@@ -119,12 +123,11 @@ public class LoginViewController implements INavegacion {
         return true;
     }
     private boolean validarFormulario() {
-        if (txtUsuario.getText().isEmpty() || txtContrasena.getText().isEmpty()) {
+        if (txtUsuario.getText().isEmpty() || txtContrasena.getText().isEmpty()|| rBtnInstructor.isSelected()==false && rBtnAdministrador.isSelected()==false && rBtnSecretaria.isSelected()==false) {
             return false;
         }
         return true;
     }
-
     private void limpiarCampos() {
         txtContrasena.setText("");
         txtUsuario.setText("");
@@ -139,10 +142,5 @@ public class LoginViewController implements INavegacion {
         aler.setHeaderText(header);
         aler.setContentText(contenido);
         aler.showAndWait();
-    }
-    @FXML
-    public void onRegistrarse(ActionEvent actionEvent) {
-        irPantalla("Login/Registro.fxml", "Registro");
-        cerrarVentanaActual();
     }
 }
