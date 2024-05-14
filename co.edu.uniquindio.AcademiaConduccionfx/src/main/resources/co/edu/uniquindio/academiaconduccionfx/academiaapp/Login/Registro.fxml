@@ -9,25 +9,22 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="504.0" prefWidth="911.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.academiaconduccionfx.academiaapp.viewcontroller.RegisterViewController">
+<AnchorPane prefHeight="504.0" prefWidth="911.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.academiaconduccionfx.academiaapp.viewcontroller.RegisterViewController">
    <children>
-      <VBox layoutY="92.0" prefHeight="412.0" prefWidth="482.0" spacing="15.0">
+      <VBox layoutY="162.0" prefHeight="339.0" prefWidth="490.0" spacing="15.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="482.0" text="Registro" textFill="#0598ff">
-               <font>
-                  <Font name="Cambria Bold Italic" size="34.0" />
-               </font>
-            </Label>
-            <Separator prefHeight="1.0" prefWidth="425.0" />
             <HBox prefHeight="196.0" prefWidth="481.0">
                <children>
                   <VBox prefHeight="198.0" prefWidth="269.0" />
                   <VBox prefHeight="198.0" prefWidth="469.0" spacing="30.0">
                      <children>
-                        <TextField fx:id="txtName" prefHeight="25.0" prefWidth="294.0" promptText="Ingrese su nombre" style="-fx-background-color: trasparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-                        <TextField fx:id="txtApellido" prefHeight="27.0" prefWidth="395.0" promptText="Ingrese su apellido" style="-fx-background-color: trasparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-                        <TextField fx:id="txtID" prefHeight="25.0" prefWidth="294.0" promptText="Ingrese su numero de cedula" style="-fx-background-color: trasparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-                        <TextField fx:id="txtEmail" prefHeight="25.0" prefWidth="294.0" promptText="Ingrese su correo electronico" style="-fx-background-color: trasparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+                        <TextField fx:id="txtName" prefHeight="25.0" prefWidth="294.0" promptText="Ingrese su nombre" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+
+                        <TextField fx:id="txtApellido" prefHeight="27.0" prefWidth="395.0" promptText="Ingrese su apellido" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+
+                        <TextField fx:id="txtID" prefHeight="25.0" prefWidth="294.0" promptText="Ingrese su número de cédula" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+
+                        <TextField fx:id="txtEmail" prefHeight="25.0" prefWidth="294.0" promptText="Ingrese su correo electrónico" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
                      </children>
                   </VBox>
                   <VBox prefHeight="198.0" prefWidth="275.0">
@@ -37,9 +34,11 @@
                   </VBox>
                   <VBox prefHeight="198.0" prefWidth="491.0" spacing="30.0">
                      <children>
-                        <TextField fx:id="txtEdad" prefHeight="25.0" prefWidth="294.0" promptText="Ingrese su edad" style="-fx-background-color: trasparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-                        <TextField fx:id="txtPassword" prefHeight="25.0" prefWidth="294.0" promptText="Cree una contraseña" style="-fx-background-color: trasparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-                        <TextField fx:id="txtConfirmPassword" prefHeight="25.0" prefWidth="294.0" promptText="Confirme su contraseña" style="-fx-background-color: trasparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+                        <TextField fx:id="txtEdad" prefHeight="25.0" prefWidth="294.0" promptText="Ingrese su edad" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+
+                        <TextField fx:id="txtPassword" prefHeight="25.0" prefWidth="294.0" promptText="Cree una contraseña" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+
+                        <TextField fx:id="txtConfirmPassword" prefHeight="25.0" prefWidth="294.0" promptText="Confirme su contraseña" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
                      </children>
                   </VBox>
                   <VBox prefHeight="198.0" prefWidth="272.0" />
@@ -93,10 +92,15 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="101.0" fitWidth="102.0" layoutX="176.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="-5.0">
+      <ImageView fitHeight="130.0" fitWidth="184.0" layoutX="175.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="-21.0">
          <image>
             <Image url="@../importarImagenes/images.png" />
          </image>
       </ImageView>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="4.0" layoutY="104.0" prefHeight="43.0" prefWidth="466.0" text="Registro" textFill="#0598ff">
+         <font>
+            <Font name="Cambria Bold Italic" size="34.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
