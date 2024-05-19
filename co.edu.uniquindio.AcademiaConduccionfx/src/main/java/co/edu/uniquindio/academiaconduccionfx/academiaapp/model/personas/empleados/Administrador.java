@@ -6,7 +6,8 @@ import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.Emplead
 
 public class Administrador extends Empleado {
     private String password;
-    public Administrador(String nombre, String apellido, String cedula, int edad, String correo,double salario, String password) {
+    public Administrador(String nombre, String apellido, String cedula, int edad, String correo,double salario,
+                         String password) {
         super(nombre, apellido, cedula, edad, correo, salario);
         this.password = password;
     }

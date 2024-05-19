@@ -6,7 +6,8 @@ import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.Emplead
 
 public class Secretaria extends Empleado {
     private String password;
-    public Secretaria(String nombre, String apellido, String cedula, int edad, String correo, double salario, String password) {
+    public Secretaria(String nombre, String apellido, String cedula, int edad, String correo, double salario,
+                      String password) {
         super(nombre, apellido, cedula, edad, correo, salario);
         this.password = password;
     }

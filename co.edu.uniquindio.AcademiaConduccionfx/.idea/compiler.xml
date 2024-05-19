@@ -12,7 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="academia-app" options="--add-exports java.security.jgss/sun.security.jgss=co.edu.uniquindio.academiaconduccionfx.academiaapp" />
+      <module name="academia-app" options="" />
     </option>
   </component>
 </project>

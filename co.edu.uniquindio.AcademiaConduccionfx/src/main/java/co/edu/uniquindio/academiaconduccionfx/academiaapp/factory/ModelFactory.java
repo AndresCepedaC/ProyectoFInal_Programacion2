@@ -36,17 +36,54 @@ public class ModelFactory {
     public List<Usuario> obtenerUsuarios() {
         return academiaConduccion.getListaUsuarios();
     }
+    public List<Secretaria> obtenerSecretarias() {
+        return academiaConduccion.getListaSecretarias();
+    }
+    public List<Administrador> obtenerAdministradores() {
+        return academiaConduccion.getListaAdministradores();
+    }
+    public List<Instructor> obtenerInstructores() {
+        return academiaConduccion.getListaInstructores();
+    }
+
 
     public boolean crearUsuario(Usuario usuario) {
         return academiaConduccion.crearUsuario(usuario);
+    }
+    public boolean crearSecretaria(Secretaria secretaria) {
+        return academiaConduccion.crearSecretaria(secretaria);
+    }
+    public boolean crearInstructor(Instructor instructor) {
+        return academiaConduccion.crearInstructor(instructor);
+    }
+    public boolean crearAdministrador(Administrador administrador) {
+        return academiaConduccion.crearAdministrador(administrador);
     }
 
     public Usuario obtenerUsuario(String cedula) {
         return academiaConduccion.obtenerUsuario(cedula);
     }
+    public Secretaria obtenerSecretaria(String cedula) {
+        return academiaConduccion.obtenerSecretaria(cedula);
+    }
+    public Instructor obtenerInstructor(String cedula) {
+        return academiaConduccion.obtenerInstructor(cedula);
+    }
+    public Administrador obtenerAdministrador(String cedula) {
+        return academiaConduccion.obtenerAdministrador(cedula);
+    }
 
     public int encontrarIndiceUsuario(Usuario cedula) {
         return academiaConduccion.encontrarIndiceUsuario(cedula);
+    }
+    public int encontrarIndiceSecretaria(Secretaria cedula) {
+        return academiaConduccion.encontrarIndiceSecretaria(cedula);
+    }
+    public int encontrarIndiceInstructor(Instructor cedula) {
+        return academiaConduccion.encontrarIndiceInstructor(cedula);
+    }
+    public int encontrarIndiceAdministrador(Administrador cedula) {
+        return academiaConduccion.encontrarIndiceAdministrador(cedula);
     }
 
     public boolean validarContrasena(String cedula, String contrasena) {

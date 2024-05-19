@@ -97,6 +97,40 @@ public class AcademiaConduccion {
 
         return usuario;
     }
+
+    public Secretaria obtenerSecretaria(String cedula) {
+        Secretaria secretaria = null;
+        for (Secretaria secretaria1: getListaSecretarias()) {
+            if(secretaria1.getCedula().equalsIgnoreCase(cedula)){
+                secretaria = secretaria1;
+                break;
+            }
+        }
+
+        return secretaria;
+    }
+    public Instructor obtenerInstructor(String cedula) {
+        Instructor instructor = null;
+        for (Instructor instructor1: getListaInstructores()) {
+            if(instructor1.getCedula().equalsIgnoreCase(cedula)){
+                instructor = instructor1;
+                break;
+            }
+        }
+
+        return instructor;
+    }
+    public Administrador obtenerAdministrador(String cedula) {
+        Administrador administrador = null;
+        for (Administrador administrador1: getListaAdministradores()) {
+            if(administrador1.getCedula().equalsIgnoreCase(cedula)){
+                administrador =administrador1;
+                break;
+            }
+        }
+
+        return administrador;
+    }
     public List<Usuario> getListaUsuarios() {
         return listaUsuarios;
     }
@@ -114,12 +148,74 @@ public class AcademiaConduccion {
             return false;
         }
     }
+    public boolean crearSecretaria(Secretaria secretaria) {
+        Secretaria secretariaEncontrado = obtenerSecretaria(secretaria.getCedula());
+        if (secretariaEncontrado == null){
+            getListaSecretarias().add(secretaria);
+            return true;
+        }else {
+            return false;
+        }
+    }
+    public boolean crearInstructor(Instructor instructor) {
+        Instructor instructorEncontrado = obtenerInstructor(instructor.getCedula());
+        if (instructorEncontrado == null){
+            getListaInstructores().add(instructor);
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    public boolean crearAdministrador(Administrador administrador) {
+        Administrador administradorEncontrado = obtenerAdministrador(administrador.getCedula());
+        if (administradorEncontrado == null){
+            getListaAdministradores().add(administrador);
+            return true;
+        }else {
+            return false;
+        }
+    }
 
     public int encontrarIndiceUsuario(Usuario cedula) {
         int counter = 0;
         for (int i = 0; i<listaUsuarios.size(); i++){
             counter += 1;
             if (listaUsuarios.get(i) == cedula){
+                break;
+            }
+        }
+        return counter;
+
+    }
+    public int encontrarIndiceSecretaria(Secretaria cedula) {
+        int counter = 0;
+        for (int i = 0; i<listaSecretarias.size(); i++){
+            counter += 1;
+            if (listaSecretarias.get(i) == cedula){
+                break;
+            }
+        }
+        return counter;
+
+    }
+    public int encontrarIndiceInstructor(Instructor cedula) {
+        int counter = 0;
+        for (int i = 0; i<listaInstructores.size(); i++){
+            counter += 1;
+            if (listaInstructores.get(i) == cedula){
+                break;
+            }
+        }
+        return counter;
+
+    }
+
+    public int encontrarIndiceAdministrador(Administrador cedula) {
+        int counter = 0;
+        for (int i = 0; i<listaAdministradores.size(); i++){
+            counter += 1;
+            if (listaAdministradores.get(i) == cedula){
                 break;
             }
         }
