@@ -305,8 +305,9 @@ public class AcademiaConduccion {
         return null;
     }
 
-    public void crearCurso(CursoDTO cursoDTO) {
+    public boolean crearCurso(CursoDTO cursoDTO) {
         crearCurso1(cursoDTO);
+        return false;
     }
     public Curso crearCurso1(CursoDTO cursoDTO) {
         Curso curso = builder().withIdCurso(cursoDTO.idCurso)
@@ -327,5 +328,45 @@ public class AcademiaConduccion {
             }
         }
         return null;
+    }
+
+    public Curso obtenerCurso(String idCurso) {
+        for (Curso curso : listaCursos) {
+            if (String.valueOf(curso.getIdCurso()).equalsIgnoreCase(idCurso)) {
+                return curso;
+            }
+        }
+        return null;
+    }
+
+    public boolean eliminarCurso(String idCurso) {
+        for (Curso curso : listaCursos) {
+            if (String.valueOf(curso.getIdCurso()).equalsIgnoreCase(idCurso)) {
+                listaCursos.remove(curso);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean actualizarCurso(Curso curso) {
+        for (Curso c : listaCursos) {
+            if (c.getIdCurso() == curso.getIdCurso()) {
+                c = curso;
+                int index = obtenerIndexCurso(curso);
+                listaCursos.set(index, curso);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int obtenerIndexCurso(Curso curso) {
+        for (int i = 0; i < listaCursos.size(); i++) {
+            if (listaCursos.get(i).getIdCurso() == curso.getIdCurso()) {
+                return i;
+            }
+        }
+        return -1;
     }
 }

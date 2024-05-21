@@ -279,11 +279,28 @@ public class ModelFactory {
         return academiaConduccion.getListaCursos();
     }
 
-    public void crearCurso(CursoDTO cursoDTO) {
-         academiaConduccion.crearCurso(cursoDTO);
+    public boolean crearCurso(CursoDTO cursoDTO) {
+        return academiaConduccion.crearCurso(cursoDTO);
+
     }
 
     public Inscripcion obtenerInscripcion(String id) {
         return academiaConduccion.obtenerInscripcion(id);
+    }
+
+    public Curso obtenerCurso(String idCurso) {
+        return academiaConduccion.obtenerCurso(idCurso);
+    }
+
+    public boolean eliminarCurso(String idCurso) {
+        return academiaConduccion.eliminarCurso(idCurso);
+    }
+
+    public boolean actualizarCurso(Curso curso) {
+        return academiaConduccion.actualizarCurso(curso);
+    }
+
+    public int obtenerIndexCurso(Curso curso) {
+        return academiaConduccion.obtenerIndexCurso(curso);
     }
 }

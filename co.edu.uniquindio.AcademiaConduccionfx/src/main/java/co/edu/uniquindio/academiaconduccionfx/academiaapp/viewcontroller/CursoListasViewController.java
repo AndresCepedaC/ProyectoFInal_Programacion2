@@ -3,9 +3,11 @@ package co.edu.uniquindio.academiaconduccionfx.academiaapp.viewcontroller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import co.edu.uniquindio.academiaconduccionfx.academiaapp.controller.CursoController;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.controller.CursoListasContoller;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.Curso;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.Inscripcion;
+import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.dto.CursoDTO;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.empleados.Instructor;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.servicios.INavegacion;
 import javafx.beans.property.SimpleStringProperty;
@@ -13,13 +15,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 public class CursoListasViewController implements INavegacion {
+    CursoViewController cursoViewController;
+    Curso curso;
     CursoListasContoller controller;
     ObservableList<Instructor> listaInstructoresAsociados = FXCollections.observableArrayList();
     ObservableList<Inscripcion> listaInscripcionesAsociadas = FXCollections.observableArrayList();
@@ -157,6 +158,7 @@ public class CursoListasViewController implements INavegacion {
         initTables();
         initTableInscripcion();
         initTableInstructor();
+        initTableCursoAsociadoInstructor();
     }
     private void initTableInscripcion() {
         initTableInscripcion2();
@@ -220,16 +222,63 @@ public class CursoListasViewController implements INavegacion {
         tableInscripcionAsociada.setItems(listaInscripcionesAsociadas);
     }
     private void actualizarCurso() {
-
+        this.curso = cursoViewController.cursoSeleccionado;
+        curso.getInscripcionesAsociadas().addAll(listaInscripcionesAsociadas);
+        curso.getInstructoresAsociados().addAll(listaInstructoresAsociados);
+        if (controller.actualizarCurso(curso)) {
+            int index = controller.obtenerIndexCurso(curso);
+            cursoViewController.listaCursos.set(index, curso);
+            mostrarMensaje("Actualizacion Cursos", "Actualizacion exitosa", "Actualizacion exitosa", Alert.AlertType.INFORMATION);
+        }else {
+            mostrarMensaje("Actualizacion Cursos", "Actualizacion fallida", "Actualizacion fallida", Alert.AlertType.ERROR);
+        }
     }
     private void cerrarVista() {
         Stage stage = (Stage) btnCancelar.getScene().getWindow();
         stage.close();
     }
     private void crearCurso() {
+        this.curso = cursoViewController.cursoSeleccionado;
+        curso.getInscripcionesAsociadas().addAll(listaInscripcionesAsociadas);
+        curso.getInstructoresAsociados().addAll(listaInstructoresAsociados);
+        if (construirDatosCurso(curso)) {
+            cursoViewController.listaCursos.add(curso);
+            mostrarMensaje("Creacion Cursos", "Creacion exitosa", "Creacion exitosa", Alert.AlertType.INFORMATION);
+        }else {
+            mostrarMensaje("Creacion Cursos", "Creacion fallida", "Creacion fallida", Alert.AlertType.ERROR);
+        }
     }
+
+    private boolean construirDatosCurso(Curso curso) {
+        CursoDTO cursoDTO = new CursoDTO();
+        cursoDTO.idCurso = curso.getIdCurso();
+        cursoDTO.capacidad = curso.getCapacidad();
+        cursoDTO.costo = curso.getCosto();
+        cursoDTO.duracion = curso.getDuracion();
+        cursoDTO.fechaFin = curso.getFechaFin();
+        cursoDTO.fechaInicio = curso.getFechaInicio();
+        cursoDTO.descripcion = curso.getDescripcion();
+        cursoDTO.inscripcionesAsociadas = listaInscripcionesAsociadas;
+        cursoDTO.instructoresAsociados = listaInstructoresAsociados;
+        if (controller.crearCurso(cursoDTO)) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+
     private void limpiarCampos() {
         txtIDInscripcion.setText("");
         txtCedulaInstructorAsociado.setText("");
+    }
+    private void mostrarMensaje(String tittle, String header, String contenido, Alert.AlertType alertType) {
+        Alert aler = new Alert(alertType);
+        aler.setTitle(tittle);
+        aler.setHeaderText(header);
+        aler.setContentText(contenido);
+        aler.showAndWait();
+    }
+    public void inicializarInstance(CursoViewController cursoViewController) {
+        this.cursoViewController = cursoViewController;
     }
 }

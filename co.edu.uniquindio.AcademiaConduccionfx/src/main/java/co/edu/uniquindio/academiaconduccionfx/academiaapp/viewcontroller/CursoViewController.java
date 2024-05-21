@@ -1,5 +1,6 @@
 package co.edu.uniquindio.academiaconduccionfx.academiaapp.viewcontroller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -13,9 +14,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 public class CursoViewController implements INavegacion {
+    private Curso cursoContinuar;
     ObservableList<Curso> listaCursos = FXCollections.observableArrayList();
     Curso cursoSeleccionado;
     CursoController controlador;
@@ -114,12 +120,34 @@ public class CursoViewController implements INavegacion {
 
     @FXML
     void onEliminar(ActionEvent event) {
-
+        eliminarCurso();
     }
 
     @FXML
-    void onActualizarListaCurso(ActionEvent event) {
+    void onActualizarListaCurso(ActionEvent event) throws IOException {
+        if (!txtCapacidad.getText().isEmpty() ||
+                !txtCosto.getText().isEmpty() ||
+                !txtFechaFin.getText().isEmpty() ||
+                !txtFechaInicio.getText().isEmpty() ||
+                !txtDuracion.getText().isEmpty() ||
+                !txtIDCurso.getText().isEmpty() ||
+                !txtDescripcionCurso.getText().isEmpty()) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("model/CursoListas.fxml"));
+            Parent root = loader.load();
+            Curso curso = controlador.obtenerCurso(txtIDCurso.getText());
+            cursoContinuar = curso;
+            CursoListasViewController controller = loader.getController();
+            controller.inicializarInstance(this);
 
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.setTitle("Actualizar Cursos");
+            stage.show();
+        }else {
+            mostrarMensaje("Notificacion Cursos", "Campos vacios", "Campos vacios", Alert.AlertType.WARNING);
+        }
     }
 
     @FXML
@@ -188,12 +216,18 @@ public class CursoViewController implements INavegacion {
         cursoDTO.capacidad = Integer.parseInt(txtCapacidad.getText());
         cursoDTO.costo = Double.parseDouble(txtCosto.getText());
         cursoDTO.duracion = Integer.parseInt(txtDuracion.getText());
-        cursoDTO.fechaFin = new Date(txtFechaFin.getText());
-        cursoDTO.fechaInicio = new Date(txtFechaInicio.getText());
+        cursoDTO.fechaFin = new Date();
+        cursoDTO.fechaInicio = new Date();
         cursoDTO.descripcion = txtDescripcionCurso.getText();
         return cursoDTO;
     }
-
+        private void eliminarCurso() {
+        if (controlador.eliminarCurso(txtIDCurso.getText())){
+            mostrarMensaje("Notificacion Cursos", "Eliminado", "Eliminado Correctamente", Alert.AlertType.INFORMATION);
+        }else {
+            mostrarMensaje("Notificacion Cursos", "No Eliminado", "No se ha podido Eliminar", Alert.AlertType.INFORMATION);
+        }
+    }
     private void limpiarCampos() {
         txtCapacidad.setText("");
         txtCosto.setText("");

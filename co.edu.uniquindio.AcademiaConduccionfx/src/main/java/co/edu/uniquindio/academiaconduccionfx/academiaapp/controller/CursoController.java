@@ -19,4 +19,12 @@ public class CursoController {
     public void crearCurso(CursoDTO cursoDTO) {
         modelFactory.crearCurso(cursoDTO);
     }
+
+    public Curso obtenerCurso(String IDCurso) {
+        return modelFactory.obtenerCurso(IDCurso);
+    }
+
+    public boolean eliminarCurso(String IDCurso) {
+        return modelFactory.eliminarCurso(IDCurso);
+    }
 }

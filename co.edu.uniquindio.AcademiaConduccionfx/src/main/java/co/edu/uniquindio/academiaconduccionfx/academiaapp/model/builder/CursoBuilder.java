@@ -17,7 +17,8 @@ public class CursoBuilder {
     protected Date fechaInicio;
     protected Date fechaFin;
     protected int capacidad;
-
+    protected List<Inscripcion> inscripcionesAsociadas = new ArrayList<>();
+    protected List<Instructor> instructoresAsociados = new ArrayList<>();
     public CursoBuilder() {
     }
 
@@ -56,7 +57,6 @@ public class CursoBuilder {
         this.capacidad = capacidad;
         return this;
     }
-
     public Curso build() {
         return new Curso(idCurso, descripcion, duracion, costo, fechaInicio, fechaFin, capacidad);
     }
