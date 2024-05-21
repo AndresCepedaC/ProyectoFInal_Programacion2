@@ -6,9 +6,7 @@ import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.Usuario
 import java.util.List;
 
 public class UsuarioController {
-
     ModelFactory modelFactory;
-
     public UsuarioController() {
         modelFactory = ModelFactory.getInstance();
     }

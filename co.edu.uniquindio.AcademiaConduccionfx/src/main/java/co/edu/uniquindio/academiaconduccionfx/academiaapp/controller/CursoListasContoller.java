@@ -2,9 +2,9 @@ package co.edu.uniquindio.academiaconduccionfx.academiaapp.controller;
 
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.factory.ModelFactory;
 
-public class BienvenidaController {
+public class CursoListasContoller {
     ModelFactory modelFactory;
-    public BienvenidaController() {
+    public CursoListasContoller() {
         modelFactory = ModelFactory.getInstance();
     }
 }
