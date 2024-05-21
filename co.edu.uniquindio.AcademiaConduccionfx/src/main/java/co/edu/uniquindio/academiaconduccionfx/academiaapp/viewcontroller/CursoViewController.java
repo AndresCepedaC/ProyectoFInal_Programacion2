@@ -98,7 +98,18 @@ public class CursoViewController implements INavegacion {
     }
     @FXML
     void onActualizarCurso(ActionEvent event) {
-
+        if (!txtCapacidad.getText().isEmpty() ||
+                !txtCosto.getText().isEmpty() ||
+                !txtFechaFin.getText().isEmpty() ||
+                !txtFechaInicio.getText().isEmpty() ||
+                !txtDuracion.getText().isEmpty() ||
+                !txtIDCurso.getText().isEmpty() ||
+                !txtDescripcionCurso.getText().isEmpty()) {
+            crearCurso();
+            irPantalla("model/CursoListas.fxml", "Crear Cursos");
+        }else {
+            mostrarMensaje("Notificacion Cursos", "Campos vacios", "Campos vacios", Alert.AlertType.WARNING);
+        }
     }
 
     @FXML

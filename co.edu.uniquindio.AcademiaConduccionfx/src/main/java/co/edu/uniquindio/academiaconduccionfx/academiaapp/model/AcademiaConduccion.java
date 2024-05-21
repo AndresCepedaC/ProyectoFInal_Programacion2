@@ -320,4 +320,12 @@ public class AcademiaConduccion {
         return curso;
     }
 
+    public Inscripcion obtenerInscripcion(String id) {
+        for (Inscripcion inscripcion : listaInscripciones) {
+            if (String.valueOf(inscripcion.getNumeroInscripcion()).equalsIgnoreCase(id)) {
+                return inscripcion;
+            }
+        }
+        return null;
+    }
 }
