@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="623.0" prefWidth="884.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.academiaconduccionfx.academiaapp.model.Curso">
+   <children>
+      <TextField fx:id="txtnombre" layoutX="32.0" layoutY="34.0" prefHeight="27.0" prefWidth="140.0" promptText="Ingrese el ID del curso" style="-fx-border-color: #0598ff; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
+      <TextField fx:id="txtnombre1" layoutX="32.0" layoutY="98.0" prefHeight="99.0" prefWidth="186.0" style="-fx-border-color: #0598ff; -fx-background-color: transparent;" />
+      <Label layoutX="32.0" layoutY="74.0" text="Ingrese la descripcion del curso:">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtnombre2" layoutX="258.0" layoutY="48.0" prefHeight="27.0" prefWidth="118.0" promptText="Ingrese la duracion" style="-fx-border-color: #0598ff; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
+      <TextField fx:id="txtnombre3" layoutX="266.0" layoutY="98.0" prefHeight="27.0" prefWidth="118.0" promptText="Ingrese el costo" style="-fx-border-color: #0598ff; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
+      <TextField fx:id="txtnombre4" layoutX="436.0" layoutY="48.0" prefHeight="27.0" prefWidth="140.0" promptText="Fecha Inicio" style="-fx-border-color: #0598ff; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
+      <TextField fx:id="txtnombre41" layoutX="446.0" layoutY="85.0" prefHeight="27.0" prefWidth="140.0" promptText="Fecha fin" style="-fx-border-color: #0598ff; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
+      <TextField fx:id="txtnombre42" layoutX="446.0" layoutY="141.0" prefHeight="27.0" prefWidth="173.0" promptText="ingrese la capacidad del curso" style="-fx-border-color: #0598ff; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
+      <TextField fx:id="txtnombre5" layoutX="14.0" layoutY="430.0" prefHeight="27.0" prefWidth="225.0" promptText="Ingrese el ID del instructor asociado" style="-fx-border-color: #0598ff; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
+      <Button fx:id="btnAgregar" contentDisplay="CENTER" layoutX="60.0" layoutY="473.0" mnemonicParsing="false" onAction="#onAgregar" prefHeight="27.0" prefWidth="134.0" style="-fx-background-color: #0598ff; -fx-border-color: #FFFFFF;" text="Agregar Instructor" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnAgregar1" contentDisplay="CENTER" layoutX="58.0" layoutY="344.0" mnemonicParsing="false" onAction="#onAgregar" prefHeight="27.0" prefWidth="134.0" style="-fx-background-color: #0598ff; -fx-border-color: #FFFFFF;" text="Agregar Inscripcion" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txtnombre51" layoutX="14.0" layoutY="301.0" prefHeight="27.0" prefWidth="225.0" promptText="Ingrese el ID de la inscripcion asociada" style="-fx-border-color: #0598ff; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
+      <TableView fx:id="tableInstructorAsociado" layoutX="258.0" layoutY="405.0" prefHeight="163.0" prefWidth="396.0">
+         <columns>
+            <TableColumn fx:id="tcNombre" prefWidth="84.0" text="Nombre" />
+            <TableColumn fx:id="tcApellido" text="Apellido" />
+            <TableColumn fx:id="tcCedula" prefWidth="84.0" text="Cedula" />
+            <TableColumn fx:id="tcEdad" prefWidth="35.0" text="Edad" />
+            <TableColumn fx:id="tcCorreo" prefWidth="112.0" text="Correo" />
+         </columns>
+      </TableView>
+      <TableView layoutX="670.0" layoutY="405.0" prefHeight="163.0" prefWidth="186.0">
+        <columns>
+          <TableColumn prefWidth="185.0" text="C1" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

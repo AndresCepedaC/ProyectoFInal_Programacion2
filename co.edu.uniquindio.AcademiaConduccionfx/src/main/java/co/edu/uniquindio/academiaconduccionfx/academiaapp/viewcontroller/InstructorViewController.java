@@ -46,19 +46,19 @@ public class InstructorViewController {
     private TableView<Instructor> tableInstructor;
 
     @FXML
-    private TableColumn<Usuario, String> tcApellido;
+    private TableColumn<Instructor, String> tcApellido;
 
     @FXML
-    private TableColumn<Usuario, String> tcCedula;
+    private TableColumn<Instructor, String> tcCedula;
 
     @FXML
-    private TableColumn<Usuario, String> tcCorreo;
+    private TableColumn<Instructor, String> tcCorreo;
 
     @FXML
-    private TableColumn<Usuario,String > tcEdad;
+    private TableColumn<Instructor,String > tcEdad;
 
     @FXML
-    private TableColumn<Usuario, String> tcNombre;
+    private TableColumn<Instructor, String> tcNombre;
 
     @FXML
     private TextField txtapellido;
