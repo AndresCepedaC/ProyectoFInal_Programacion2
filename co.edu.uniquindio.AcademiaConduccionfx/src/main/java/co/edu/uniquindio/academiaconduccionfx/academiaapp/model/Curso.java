@@ -1,11 +1,73 @@
 package co.edu.uniquindio.academiaconduccionfx.academiaapp.model;
 
+import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.builder.CursoBuilder;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.empleados.Instructor;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Curso {
+    private int idCurso;
+    private String descripcion;
+    private int duracion;
+    private double costo;
+    private Date fechaInicio;
+    private Date fechaFin;
+    private int capacidad;
+    List<Instructor> instructoresAsociados = new ArrayList<>();
     List<Inscripcion> inscripcionesAsociadas = new ArrayList<>();
 
+    public Curso(int idCurso,
+                 String descripcion,
+                 int duracion, double costo,
+                 Date fechaInicio, Date fechaFin,
+                 int capacidad) {
+        this.idCurso = idCurso;
+        this.descripcion = descripcion;
+        this.duracion = duracion;
+        this.costo = costo;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.capacidad = capacidad;
+    }
+
+    public int getIdCurso() {
+        return idCurso;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public int getDuracion() {
+        return duracion;
+    }
+
+    public double getCosto() {
+        return costo;
+    }
+
+    public Date getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public Date getFechaFin() {
+        return fechaFin;
+    }
+
+    public int getCapacidad() {
+        return capacidad;
+    }
+
+    public List<Instructor> getInstructoresAsociados() {
+        return instructoresAsociados;
+    }
+
+    public List<Inscripcion> getInscripcionesAsociadas() {
+        return inscripcionesAsociadas;
+    }
+    public static CursoBuilder builder() {
+        return new CursoBuilder();
+    }
 }
