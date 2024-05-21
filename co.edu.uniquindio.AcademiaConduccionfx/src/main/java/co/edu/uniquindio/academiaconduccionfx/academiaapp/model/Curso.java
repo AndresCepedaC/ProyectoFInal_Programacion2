@@ -8,17 +8,20 @@ import java.util.Date;
 import java.util.List;
 
 public class Curso {
-    private int idCurso;
+    private String idCurso;
     private String descripcion;
     private int duracion;
     private double costo;
     private Date fechaInicio;
     private Date fechaFin;
     private int capacidad;
-    List<Instructor> instructoresAsociados = new ArrayList<>();
-    List<Inscripcion> inscripcionesAsociadas = new ArrayList<>();
+    private List<Instructor> instructoresAsociados = new ArrayList<>();
+    private List<Inscripcion> inscripcionesAsociadas = new ArrayList<>();
 
-    public Curso(int idCurso,
+    public Curso() {
+    }
+
+    public Curso(String idCurso,
                  String descripcion,
                  int duracion, double costo,
                  Date fechaInicio, Date fechaFin,
@@ -32,7 +35,7 @@ public class Curso {
         this.capacidad = capacidad;
     }
 
-    public int getIdCurso() {
+    public String getIdCurso() {
         return idCurso;
     }
 

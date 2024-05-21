@@ -1,6 +1,8 @@
 package co.edu.uniquindio.academiaconduccionfx.academiaapp.factory;
 
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.AcademiaConduccion;
+import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.Curso;
+import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.dto.CursoDTO;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.Usuario;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.empleados.Administrador;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.empleados.Instructor;
@@ -270,5 +272,13 @@ public class ModelFactory {
 
     public Instructor encontrarInstructorID(String text) {
         return academiaConduccion.encontrarInstructorID(text);
+    }
+
+    public List<Curso> obtenerCursos() {
+        return academiaConduccion.getListaCursos();
+    }
+
+    public void crearCurso(CursoDTO cursoDTO) {
+         academiaConduccion.crearCurso(cursoDTO);
     }
 }

@@ -1,5 +1,6 @@
 package co.edu.uniquindio.academiaconduccionfx.academiaapp.model;
 
+import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.dto.CursoDTO;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.Usuario;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.empleados.Administrador;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.empleados.Instructor;
@@ -7,6 +8,8 @@ import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.emplead
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static co.edu.uniquindio.academiaconduccionfx.academiaapp.model.Curso.builder;
 
 public class AcademiaConduccion {
     List<Usuario> listaUsuarios = new ArrayList<>();
@@ -301,4 +304,20 @@ public class AcademiaConduccion {
         }
         return null;
     }
+
+    public void crearCurso(CursoDTO cursoDTO) {
+        crearCurso1(cursoDTO);
+    }
+    public Curso crearCurso1(CursoDTO cursoDTO) {
+        Curso curso = builder().withIdCurso(cursoDTO.idCurso)
+                .withCapacidad(cursoDTO.capacidad)
+                .withDuracion(cursoDTO.duracion)
+                .withFechaInicio(cursoDTO.fechaInicio)
+                .withFechaFin(cursoDTO.fechaFin)
+                .withDescripcion(cursoDTO.descripcion)
+                .withCosto(cursoDTO.costo)
+                .build();
+        return curso;
+    }
+
 }

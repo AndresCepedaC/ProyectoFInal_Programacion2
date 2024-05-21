@@ -7,46 +7,75 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="623.0" prefWidth="884.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.academiaconduccionfx.academiaapp.model.Curso">
+<AnchorPane prefHeight="501.0" prefWidth="551.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.academiaconduccionfx.academiaapp.viewcontroller.CursoViewController">
    <children>
-      <TextField fx:id="txtnombre" layoutX="32.0" layoutY="34.0" prefHeight="27.0" prefWidth="140.0" promptText="Ingrese el ID del curso" style="-fx-border-color: #0598ff; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
-      <TextField fx:id="txtnombre1" layoutX="32.0" layoutY="98.0" prefHeight="99.0" prefWidth="186.0" style="-fx-border-color: #0598ff; -fx-background-color: transparent;" />
-      <Label layoutX="32.0" layoutY="74.0" text="Ingrese la descripcion del curso:">
-         <font>
-            <Font name="System Bold Italic" size="12.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtnombre2" layoutX="258.0" layoutY="48.0" prefHeight="27.0" prefWidth="118.0" promptText="Ingrese la duracion" style="-fx-border-color: #0598ff; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
-      <TextField fx:id="txtnombre3" layoutX="266.0" layoutY="98.0" prefHeight="27.0" prefWidth="118.0" promptText="Ingrese el costo" style="-fx-border-color: #0598ff; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
-      <TextField fx:id="txtnombre4" layoutX="436.0" layoutY="48.0" prefHeight="27.0" prefWidth="140.0" promptText="Fecha Inicio" style="-fx-border-color: #0598ff; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
-      <TextField fx:id="txtnombre41" layoutX="446.0" layoutY="85.0" prefHeight="27.0" prefWidth="140.0" promptText="Fecha fin" style="-fx-border-color: #0598ff; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
-      <TextField fx:id="txtnombre42" layoutX="446.0" layoutY="141.0" prefHeight="27.0" prefWidth="173.0" promptText="ingrese la capacidad del curso" style="-fx-border-color: #0598ff; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
-      <TextField fx:id="txtnombre5" layoutX="14.0" layoutY="430.0" prefHeight="27.0" prefWidth="225.0" promptText="Ingrese el ID del instructor asociado" style="-fx-border-color: #0598ff; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
-      <Button fx:id="btnAgregar" contentDisplay="CENTER" layoutX="60.0" layoutY="473.0" mnemonicParsing="false" onAction="#onAgregar" prefHeight="27.0" prefWidth="134.0" style="-fx-background-color: #0598ff; -fx-border-color: #FFFFFF;" text="Agregar Instructor" textFill="WHITE">
-         <font>
-            <Font name="System Bold Italic" size="12.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnAgregar1" contentDisplay="CENTER" layoutX="58.0" layoutY="344.0" mnemonicParsing="false" onAction="#onAgregar" prefHeight="27.0" prefWidth="134.0" style="-fx-background-color: #0598ff; -fx-border-color: #FFFFFF;" text="Agregar Inscripcion" textFill="WHITE">
-         <font>
-            <Font name="System Bold Italic" size="12.0" />
-         </font>
-      </Button>
-      <TextField fx:id="txtnombre51" layoutX="14.0" layoutY="301.0" prefHeight="27.0" prefWidth="225.0" promptText="Ingrese el ID de la inscripcion asociada" style="-fx-border-color: #0598ff; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
-      <TableView fx:id="tableInstructorAsociado" layoutX="258.0" layoutY="405.0" prefHeight="163.0" prefWidth="396.0">
-         <columns>
-            <TableColumn fx:id="tcNombre" prefWidth="84.0" text="Nombre" />
-            <TableColumn fx:id="tcApellido" text="Apellido" />
-            <TableColumn fx:id="tcCedula" prefWidth="84.0" text="Cedula" />
-            <TableColumn fx:id="tcEdad" prefWidth="35.0" text="Edad" />
-            <TableColumn fx:id="tcCorreo" prefWidth="112.0" text="Correo" />
-         </columns>
-      </TableView>
-      <TableView layoutX="670.0" layoutY="405.0" prefHeight="163.0" prefWidth="186.0">
-        <columns>
-          <TableColumn prefWidth="185.0" text="C1" />
-        </columns>
-      </TableView>
+      <AnchorPane layoutX="3.0" prefHeight="632.0" prefWidth="661.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <TextField fx:id="txtDescripcionCurso" layoutX="21.0" layoutY="253.0" prefHeight="88.0" prefWidth="622.0" style="-fx-border-color: #0598ff; -fx-background-color: transparent;" />
+            <HBox layoutX="26.0" layoutY="58.0" prefHeight="202.0" prefWidth="606.0" spacing="30.0">
+               <children>
+                  <VBox prefHeight="202.0" prefWidth="320.0" spacing="40.0">
+                     <children>
+                        <TextField fx:id="txtIDCurso" prefHeight="27.0" prefWidth="179.0" promptText="Ingrese el ID del curso" style="-fx-border-color: #0598ff; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
+                        <TextField fx:id="txtCosto" prefHeight="27.0" prefWidth="179.0" promptText="Ingrese el costo" style="-fx-border-color: #0598ff; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
+                        <TextField fx:id="txtFechaInicio" prefHeight="27.0" prefWidth="179.0" promptText="Fecha de inicio (dd/mm/aaaa)" style="-fx-border-color: #0598ff; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="202.0" prefWidth="320.0" spacing="40.0">
+                     <children>
+                        <TextField fx:id="txtDuracion" prefHeight="27.0" prefWidth="179.0" promptText="Ingrese la duracion (meses)" style="-fx-border-color: #0598ff; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
+                        <TextField fx:id="txtFechaFin" prefHeight="27.0" prefWidth="179.0" promptText="Fecha de fin (dd/mm/aaaa)" style="-fx-border-color: #0598ff; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
+                        <TextField fx:id="txtCapacidad" prefHeight="27.0" prefWidth="179.0" promptText="ingrese la capacidad del curso (numero entero)" style="-fx-border-color: #0598ff; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Label layoutX="214.0" layoutY="224.0" prefHeight="27.0" prefWidth="234.0" text="Ingrese la descripcion del curso:">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="-3.0" prefHeight="27.0" prefWidth="664.0" style="-fx-background-color: #0598ff;">
+               <children>
+                  <Label layoutX="12.0" prefHeight="35.0" prefWidth="279.0" text="Informacion del Curso" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Button fx:id="btnContinuarCreando" contentDisplay="CENTER" layoutX="20.0" layoutY="349.0" mnemonicParsing="false" onAction="#onContinuarCreando" prefHeight="25.0" prefWidth="161.0" style="-fx-background-color: #0598ff;" text="Continuar creando curso" textAlignment="CENTER" textFill="WHITE" textOverrun="LEADING_WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnActualizarCurso" contentDisplay="CENTER" layoutX="251.0" layoutY="349.0" mnemonicParsing="false" onAction="#onActualizarCurso" prefHeight="25.0" prefWidth="161.0" style="-fx-background-color: #0598ff;" text="Actualizar curso" textAlignment="CENTER" textFill="WHITE" textOverrun="LEADING_WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnEliminar" contentDisplay="CENTER" layoutX="251.0" layoutY="598.0" mnemonicParsing="false" onAction="#onEliminar" prefHeight="25.0" prefWidth="161.0" style="-fx-background-color: #0598ff;" text="Eliminar" textAlignment="CENTER" textFill="WHITE" textOverrun="LEADING_WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <TableView fx:id="tableCursos" layoutX="20.0" layoutY="385.0" prefHeight="202.0" prefWidth="622.0">
+              <columns>
+                <TableColumn fx:id="tcIDCurso" prefWidth="106.0" text="ID de Curso" />
+                <TableColumn fx:id="tcDescripcion" prefWidth="158.0" text="Descripcion" />
+                  <TableColumn fx:id="tcDuracion" prefWidth="61.0" text="duracion" />
+                  <TableColumn fx:id="tcCosto" prefWidth="92.0" text="costo" />
+                  <TableColumn fx:id="tcFechaInicio" prefWidth="77.0" text="fecha Inicio" />
+                  <TableColumn fx:id="tcFechaFin" prefWidth="59.0" text="fecha Fin" />
+                  <TableColumn fx:id="tcCapacidad" prefWidth="68.0" text="capacidad" />
+              </columns>
+            </TableView>
+            <Button fx:id="btnActualizarListaCurso" contentDisplay="CENTER" layoutX="474.0" layoutY="349.0" mnemonicParsing="false" onAction="#onActualizarListaCurso" prefHeight="25.0" prefWidth="167.0" style="-fx-background-color: #0598ff;" text="Actualizar listas asociadas" textAlignment="CENTER" textFill="WHITE" textOverrun="LEADING_WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 public class CursoBuilder {
-    protected int idCurso;
+    protected String idCurso;
     protected String descripcion;
     protected int duracion;
     protected double costo;
@@ -21,7 +21,7 @@ public class CursoBuilder {
     public CursoBuilder() {
     }
 
-    public CursoBuilder withIdCurso(int idCurso) {
+    public CursoBuilder withIdCurso(String idCurso) {
         this.idCurso = idCurso;
         return this;
     }
