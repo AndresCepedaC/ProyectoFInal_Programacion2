@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="co.edu.uniquindio.academiaconduccionfx.academiaapp.viewcontroller.CursoListasViewController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <Label layoutX="416.0" layoutY="200.0" prefHeight="17.0" prefWidth="186.0" text="Instructores asociados al curso">
+            <font>
+                <Font name="System Bold Italic" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="416.0" layoutY="4.0" prefHeight="17.0" prefWidth="186.0" text="Inscripciones asociadas al curso">
+            <font>
+                <Font name="System Bold Italic" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="745.0" layoutY="28.0" prefHeight="17.0" prefWidth="146.0" text="Instructores asociados">
+            <font>
+                <Font name="System Bold Italic" size="12.0" />
+            </font>
+        </Label>
+        <TableView fx:id="tableIntructoresAsociadosInscripcion" layoutX="745.0" layoutY="46.0" prefHeight="147.0" prefWidth="225.0">
+            <columns>
+                <TableColumn fx:id="tcNombreinstructorAsociado" prefWidth="58.0" text="Nombre" />
+                <TableColumn fx:id="tcCedulaInstructorAsociado" prefWidth="48.0" text="Cedula" />
+                <TableColumn fx:id="tcEdadInstructorAsociado" prefWidth="54.0" text="Edad" />
+                <TableColumn fx:id="tcCorreoInstructorAsociado" prefWidth="64.0" text="Correo" />
+            </columns>
+        </TableView>
+        <Label layoutX="594.0" layoutY="28.0" prefHeight="17.0" prefWidth="146.0" text="Cursos asociados">
+            <font>
+                <Font name="System Bold Italic" size="12.0" />
+            </font>
+        </Label>
+        <TableView fx:id="tableCursosAsociadosInscripcion" layoutX="594.0" layoutY="46.0" prefHeight="147.0" prefWidth="146.0">
+            <columns>
+                <TableColumn fx:id="tcIDCursoAsociadoInscripcion" prefWidth="69.0" text="ID curso" />
+                <TableColumn fx:id="tcDescripcionCursoAsociadoInscripcion" prefWidth="76.0" text="Descripcion" />
+            </columns>
+        </TableView>
+        <TableView fx:id="tableInscripcionAsociada" layoutX="262.0" layoutY="29.0" prefHeight="163.0" prefWidth="326.0">
+            <columns>
+                <TableColumn fx:id="tcNumero" prefWidth="64.0" text="Numero" />
+                <TableColumn fx:id="tcIDInscripcion" prefWidth="48.0" text="ID " />
+                <TableColumn fx:id="tcFechaInscripcion" prefWidth="48.0" text="Fecha" />
+                <TableColumn fx:id="tcCategoria" prefWidth="63.0" text="Categoria" />
+                <TableColumn fx:id="tcUsuarioAsociado" prefWidth="101.0" text="Usuario asociado" />
+            </columns>
+        </TableView>
+        <Separator layoutX="6.0" layoutY="197.0" prefHeight="5.0" prefWidth="975.0" />
+        <Label layoutX="675.0" layoutY="218.0" text="Cursos asociados al instructor">
+            <font>
+                <Font name="System Bold Italic" size="12.0" />
+            </font>
+        </Label>
+        <TableView fx:id="tableCursosAsociadosInstructor" layoutX="664.0" layoutY="235.0" prefHeight="147.0" prefWidth="306.0">
+            <columns>
+                <TableColumn fx:id="tcIDCursoAsociadoInstructor" prefWidth="88.0" text="ID curso" />
+                <TableColumn fx:id="tcDescripcionCursoInstructorAsociado" prefWidth="217.0" text="Descripcion" />
+            </columns>
+        </TableView>
+        <TableView fx:id="tableInstructoresAsociados" layoutX="261.0" layoutY="219.0" prefHeight="163.0" prefWidth="396.0">
+            <columns>
+                <TableColumn fx:id="tcNombre" prefWidth="84.0" text="Nombre" />
+                <TableColumn fx:id="tcApellido" text="Apellido" />
+                <TableColumn fx:id="tcCedula" prefWidth="84.0" text="Cedula" />
+                <TableColumn fx:id="tcEdad" prefWidth="35.0" text="Edad" />
+                <TableColumn fx:id="tcCorreo" prefWidth="112.0" text="Correo" />
+            </columns>
+        </TableView>
+        <TextField fx:id="txtIDInscripcion" layoutX="14.0" layoutY="93.0" prefHeight="27.0" prefWidth="231.0" promptText="Ingrese el ID de la inscripcion asociada" style="-fx-border-color: #0598ff; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
+        <Button fx:id="btnAgregarInscripcion" contentDisplay="CENTER" layoutX="58.0" layoutY="136.0" mnemonicParsing="false" onAction="#onAgregarInscripcion" prefHeight="27.0" prefWidth="134.0" style="-fx-background-color: #0598ff; -fx-border-color: #FFFFFF;" text="Agregar Inscripcion" textFill="WHITE">
+            <font>
+                <Font name="System Bold Italic" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnAgregarInstructor" contentDisplay="CENTER" layoutX="63.0" layoutY="300.0" mnemonicParsing="false" onAction="#onAgregarInstructor" prefHeight="27.0" prefWidth="134.0" style="-fx-background-color: #0598ff; -fx-border-color: #FFFFFF;" text="Agregar Instructor" textFill="WHITE">
+            <font>
+                <Font name="System Bold Italic" size="12.0" />
+            </font>
+        </Button>
+        <TextField fx:id="txtCedulaInstructorAsociado" layoutX="17.0" layoutY="257.0" prefHeight="27.0" prefWidth="231.0" promptText="Ingrese la cedula del instructor asociado" style="-fx-border-color: #0598ff; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
+        <Button fx:id="btnCrearCurso" contentDisplay="CENTER" layoutX="442.0" layoutY="401.0" mnemonicParsing="false" onAction="#onCrearCurso" prefHeight="27.0" prefWidth="134.0" style="-fx-background-color: #0598ff; -fx-border-color: #FFFFFF;" text="Crear curso" textFill="WHITE">
+            <font>
+                <Font name="System Bold Italic" size="12.0" />
+            </font>
+        </Button>
+        <Separator layoutX="3.0" layoutY="391.0" prefHeight="5.0" prefWidth="975.0" />
+        <Button fx:id="btnCancelar" contentDisplay="CENTER" layoutX="14.0" layoutY="401.0" mnemonicParsing="false" onAction="#onCancelar" prefHeight="27.0" prefWidth="134.0" style="-fx-background-color: #0598ff; -fx-border-color: #FFFFFF;" text="Cancelar" textFill="WHITE">
+            <font>
+                <Font name="System Bold Italic" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnActualizarCurso" contentDisplay="CENTER" layoutX="759.0" layoutY="401.0" mnemonicParsing="false" onAction="#onActualizarCurso" prefHeight="27.0" prefWidth="134.0" style="-fx-background-color: #0598ff; -fx-border-color: #FFFFFF;" text="Actualizar curso" textFill="WHITE">
+            <font>
+                <Font name="System Bold Italic" size="12.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>

@@ -6,22 +6,23 @@ import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.Inscripcion;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.Usuario;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.empleados.Instructor;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class InscripcionBuilder {
-    protected Date fechaInscripcion;
+    protected LocalDate fechaInscripcion;
     protected Curso curso;
     protected String estado;
     protected Usuario usuario;
-    protected int numeroInscripcion;
+    protected String numeroInscripcion;
     protected CategoriaLicencia categoriaLicencia;
 
     public InscripcionBuilder() {
     }
 
-    public InscripcionBuilder withFechaInscripcion(Date fechaInscripcion) {
+    public InscripcionBuilder withFechaInscripcion(LocalDate fechaInscripcion) {
         this.fechaInscripcion = fechaInscripcion;
         return this;
     }
@@ -41,7 +42,7 @@ public class InscripcionBuilder {
         return this;
     }
 
-    public InscripcionBuilder withNumeroInscripcion(int numeroInscripcion) {
+    public InscripcionBuilder withNumeroInscripcion(String numeroInscripcion) {
         this.numeroInscripcion = numeroInscripcion;
         return this;
     }

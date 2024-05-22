@@ -2,6 +2,7 @@ package co.edu.uniquindio.academiaconduccionfx.academiaapp.viewcontroller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -59,7 +60,7 @@ public class CursoViewController implements INavegacion {
     private TextField txtIDCurso;
 
     @FXML
-    private TextField txtFechaFin;
+    private DatePicker dateFechaFin;
 
     @FXML
     private TextField txtDuracion;
@@ -80,7 +81,7 @@ public class CursoViewController implements INavegacion {
     private TextField txtCosto;
 
     @FXML
-    private TextField txtFechaInicio;
+    private DatePicker dateFechaInicio;
 
     @FXML
     private TextField txtCapacidad;
@@ -89,13 +90,7 @@ public class CursoViewController implements INavegacion {
     private TableColumn<Curso, String> tcIDCurso;
     @FXML
     void onContinuarCreando(ActionEvent event) {
-        if (!txtCapacidad.getText().isEmpty() ||
-                !txtCosto.getText().isEmpty() ||
-                !txtFechaFin.getText().isEmpty() ||
-                !txtFechaInicio.getText().isEmpty() ||
-                !txtDuracion.getText().isEmpty() ||
-                !txtIDCurso.getText().isEmpty() ||
-                !txtDescripcionCurso.getText().isEmpty()) {
+        if (validarFormulario()) {
             crearCurso();
             irPantalla("model/CursoListas.fxml", "Crear Cursos");
         }else {
@@ -104,13 +99,7 @@ public class CursoViewController implements INavegacion {
     }
     @FXML
     void onActualizarCurso(ActionEvent event) {
-        if (!txtCapacidad.getText().isEmpty() ||
-                !txtCosto.getText().isEmpty() ||
-                !txtFechaFin.getText().isEmpty() ||
-                !txtFechaInicio.getText().isEmpty() ||
-                !txtDuracion.getText().isEmpty() ||
-                !txtIDCurso.getText().isEmpty() ||
-                !txtDescripcionCurso.getText().isEmpty()) {
+        if (validarFormulario()) {
             crearCurso();
             irPantalla("model/CursoListas.fxml", "Crear Cursos");
         }else {
@@ -125,13 +114,7 @@ public class CursoViewController implements INavegacion {
 
     @FXML
     void onActualizarListaCurso(ActionEvent event) throws IOException {
-        if (!txtCapacidad.getText().isEmpty() ||
-                !txtCosto.getText().isEmpty() ||
-                !txtFechaFin.getText().isEmpty() ||
-                !txtFechaInicio.getText().isEmpty() ||
-                !txtDuracion.getText().isEmpty() ||
-                !txtIDCurso.getText().isEmpty() ||
-                !txtDescripcionCurso.getText().isEmpty()) {
+        if (validarFormulario()) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("model/CursoListas.fxml"));
             Parent root = loader.load();
             Curso curso = controlador.obtenerCurso(txtIDCurso.getText());
@@ -192,8 +175,8 @@ public class CursoViewController implements INavegacion {
             txtCapacidad.setText(String.valueOf(cursoSeleccionado.getCapacidad()));
             txtCosto.setText(String.valueOf(cursoSeleccionado.getCosto()));
             txtDuracion.setText(String.valueOf(cursoSeleccionado.getDuracion()));
-            txtFechaFin.setText(String.valueOf(cursoSeleccionado.getFechaFin()));
-            txtFechaInicio.setText(String.valueOf(cursoSeleccionado.getFechaInicio()));
+            dateFechaFin.setValue(cursoSeleccionado.getFechaFin());
+            dateFechaInicio.setValue(cursoSeleccionado.getFechaInicio());
             txtDescripcionCurso.setText(cursoSeleccionado.getDescripcion());
         }
     }
@@ -216,8 +199,8 @@ public class CursoViewController implements INavegacion {
         cursoDTO.capacidad = Integer.parseInt(txtCapacidad.getText());
         cursoDTO.costo = Double.parseDouble(txtCosto.getText());
         cursoDTO.duracion = Integer.parseInt(txtDuracion.getText());
-        cursoDTO.fechaFin = new Date();
-        cursoDTO.fechaInicio = new Date();
+        cursoDTO.fechaFin = dateFechaFin.getValue();
+        cursoDTO.fechaInicio = dateFechaInicio.getValue();
         cursoDTO.descripcion = txtDescripcionCurso.getText();
         return cursoDTO;
     }
@@ -228,12 +211,25 @@ public class CursoViewController implements INavegacion {
             mostrarMensaje("Notificacion Cursos", "No Eliminado", "No se ha podido Eliminar", Alert.AlertType.INFORMATION);
         }
     }
+    private boolean validarFormulario() {
+        if (!txtCapacidad.getText().isEmpty() ||
+                !txtCosto.getText().isEmpty() ||
+                !txtDuracion.getText().isEmpty() ||
+                dateFechaFin.getValue() != null ||
+                dateFechaInicio.getValue() != null ||
+                !txtIDCurso.getText().isEmpty() ||
+                !txtDescripcionCurso.getText().isEmpty()){
+            return true;
+        }else {
+            return false;
+        }
+    }
     private void limpiarCampos() {
         txtCapacidad.setText("");
         txtCosto.setText("");
         txtDuracion.setText("");
-        txtFechaFin.setText("");
-        txtFechaInicio.setText("");
+        dateFechaFin.setValue(null);
+        dateFechaInicio.setValue(null);
         txtIDCurso.setText("");
         txtDescripcionCurso.setText("");
     }

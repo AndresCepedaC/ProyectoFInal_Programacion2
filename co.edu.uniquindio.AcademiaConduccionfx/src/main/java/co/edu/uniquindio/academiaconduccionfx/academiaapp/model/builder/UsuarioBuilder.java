@@ -8,7 +8,6 @@ public class UsuarioBuilder{
     protected String cedula;
     protected int edad;
     protected String correo;
-    protected String password;
 
     public UsuarioBuilder setNombre(String nombre) {
         this.nombre = nombre;
@@ -36,13 +35,9 @@ public class UsuarioBuilder{
         this.correo = correo;
         return this;
     }
-    public UsuarioBuilder setPassword(String password) {
-        this.password = password;
-        return this;
-    }
 
   public Usuario build(){
-return new Usuario(nombre,apellido,cedula, edad, correo, password);
+return new Usuario(nombre,apellido,cedula, edad, correo);
   }
 
 

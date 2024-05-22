@@ -97,7 +97,7 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnActualizarCurso" contentDisplay="CENTER" layoutX="759.0" layoutY="401.0" mnemonicParsing="false" onAction="#onActualizarCurso" prefHeight="27.0" prefWidth="134.0" style="-fx-background-color: #0598ff; -fx-border-color: #FFFFFF;" text="Crear actualizar" textFill="WHITE">
+      <Button fx:id="btnActualizarCurso" contentDisplay="CENTER" layoutX="759.0" layoutY="401.0" mnemonicParsing="false" onAction="#onActualizarCurso" prefHeight="27.0" prefWidth="134.0" style="-fx-background-color: #0598ff; -fx-border-color: #FFFFFF;" text="Actualizar curso" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>

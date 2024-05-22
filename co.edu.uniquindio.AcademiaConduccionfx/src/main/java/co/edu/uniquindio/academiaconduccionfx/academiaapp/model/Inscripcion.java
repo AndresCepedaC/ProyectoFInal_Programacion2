@@ -6,23 +6,24 @@ import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.Emplead
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.Usuario;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.empleados.Instructor;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Inscripcion {
-    private Date fechaInscripcion;
+    private LocalDate fechaInscripcion;
     private Curso curso;
     private String estado;
     private Usuario  usuario;
-    private int numeroInscripcion;
+    private String numeroInscripcion;
     private CategoriaLicencia categoriaLicencia;
     private List<Curso> cursosAsociados = new ArrayList<>();
 
 
-    public Inscripcion(Date fechaInscripcion, Curso curso,
+    public Inscripcion(LocalDate fechaInscripcion, Curso curso,
                        String estado, Usuario usuario,
-                       int numeroInscripcion,
+                       String numeroInscripcion,
                        CategoriaLicencia categoriaLicencia) {
         this.fechaInscripcion = fechaInscripcion;
         this.curso = curso;
@@ -32,7 +33,7 @@ public class Inscripcion {
         this.categoriaLicencia = categoriaLicencia;
     }
 
-    public Date getFechaInscripcion() {
+    public LocalDate getFechaInscripcion() {
         return fechaInscripcion;
     }
 
@@ -56,7 +57,7 @@ public class Inscripcion {
         return cursosAsociados;
     }
 
-    public int getNumeroInscripcion() {
+    public String getNumeroInscripcion() {
         return numeroInscripcion;
     }
 

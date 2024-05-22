@@ -86,7 +86,6 @@ public class AcademiaConduccion {
                 .setCorreo(correo)
                 .setEdad(edad)
                 .setNombre(nombre)
-                .setPassword(password)
                 .build();
     }
     public Usuario obtenerUsuario(String cedula) {
@@ -224,16 +223,6 @@ public class AcademiaConduccion {
         }
         return counter;
 
-    }
-
-    public boolean validarContrasena(String cedula, String contrasena) {
-        Usuario usuarioEncontrado = obtenerUsuario(cedula);
-        if (usuarioEncontrado != null){
-            if (usuarioEncontrado.getContrasena().equalsIgnoreCase(contrasena)){
-                return true;
-            }
-        }
-        return false;
     }
 
     public boolean agregarUsuario(Usuario usuario) {

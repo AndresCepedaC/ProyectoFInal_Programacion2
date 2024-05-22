@@ -5,6 +5,7 @@ import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.Inscripcion;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.Empleado;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.empleados.Instructor;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,8 +15,8 @@ public class CursoBuilder {
     protected String descripcion;
     protected int duracion;
     protected double costo;
-    protected Date fechaInicio;
-    protected Date fechaFin;
+    protected LocalDate fechaInicio;
+    protected LocalDate fechaFin;
     protected int capacidad;
     protected List<Inscripcion> inscripcionesAsociadas = new ArrayList<>();
     protected List<Instructor> instructoresAsociados = new ArrayList<>();
@@ -43,12 +44,12 @@ public class CursoBuilder {
         return this;
     }
 
-    public CursoBuilder withFechaInicio(Date fechaInicio) {
+    public CursoBuilder withFechaInicio(LocalDate fechaInicio) {
         this.fechaInicio = fechaInicio;
         return this;
     }
 
-    public CursoBuilder withFechaFin(Date fechaFin) {
+    public CursoBuilder withFechaFin(LocalDate fechaFin) {
         this.fechaFin = fechaFin;
         return this;
     }

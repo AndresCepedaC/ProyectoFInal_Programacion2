@@ -3,6 +3,7 @@ package co.edu.uniquindio.academiaconduccionfx.academiaapp.model;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.builder.CursoBuilder;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.empleados.Instructor;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -12,8 +13,8 @@ public class Curso {
     private String descripcion;
     private int duracion;
     private double costo;
-    private Date fechaInicio;
-    private Date fechaFin;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
     private int capacidad;
     private List<Instructor> instructoresAsociados = new ArrayList<>();
     private List<Inscripcion> inscripcionesAsociadas = new ArrayList<>();
@@ -24,7 +25,7 @@ public class Curso {
     public Curso(String idCurso,
                  String descripcion,
                  int duracion, double costo,
-                 Date fechaInicio, Date fechaFin,
+                 LocalDate fechaInicio, LocalDate fechaFin,
                  int capacidad) {
         this.idCurso = idCurso;
         this.descripcion = descripcion;
@@ -51,11 +52,11 @@ public class Curso {
         return costo;
     }
 
-    public Date getFechaInicio() {
+    public LocalDate getFechaInicio() {
         return fechaInicio;
     }
 
-    public Date getFechaFin() {
+    public LocalDate getFechaFin() {
         return fechaFin;
     }
 

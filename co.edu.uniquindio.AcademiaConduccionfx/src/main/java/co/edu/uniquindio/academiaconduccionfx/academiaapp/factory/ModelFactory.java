@@ -2,6 +2,7 @@ package co.edu.uniquindio.academiaconduccionfx.academiaapp.factory;
 
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.AcademiaConduccion;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.Curso;
+import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.Enum.CategoriaLicencia;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.Inscripcion;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.dto.CursoDTO;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.Usuario;
@@ -9,6 +10,7 @@ import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.emplead
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.empleados.Instructor;
 import co.edu.uniquindio.academiaconduccionfx.academiaapp.model.personas.empleados.Secretaria;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class ModelFactory {
@@ -32,6 +34,9 @@ public class ModelFactory {
         initAdministradores();
         initSecretarias();
         initInstructores();
+        initInscripciones();
+        initCursos();
+        initRelations();
     }
 
 
@@ -88,10 +93,6 @@ public class ModelFactory {
     public int encontrarIndiceAdministrador(Administrador cedula) {
         return academiaConduccion.encontrarIndiceAdministrador(cedula);
     }
-
-    public boolean validarContrasena(String cedula, String contrasena) {
-        return academiaConduccion.validarContrasena(cedula,contrasena);
-    }
     private void initUsuarios() {
         Usuario usuario = Usuario.builder()
                 .setNombre("Jorge")
@@ -121,10 +122,6 @@ public class ModelFactory {
                 .setCorreo("mai@27")
                 .setEdad(26)
                 .build();
-        usuario.setContrasena("123");
-        usuario2.setContrasena("1234");
-        usuario3.setContrasena("1235");
-        usuario4.setContrasena("1236");
         academiaConduccion.getListaUsuarios().add(usuario);
         academiaConduccion.getListaUsuarios().add(usuario2);
         academiaConduccion.getListaUsuarios().add(usuario3);
@@ -168,7 +165,6 @@ public class ModelFactory {
         academiaConduccion.getListaAdministradores().add(administrador3);
         academiaConduccion.getListaAdministradores().add(administrador4);
     }
-
     private void initSecretarias() {
         Secretaria secretaria = Secretaria.builder()
                 .setNombre("Roberta")
@@ -207,7 +203,6 @@ public class ModelFactory {
         academiaConduccion.getListaSecretarias().add(secretaria3);
         academiaConduccion.getListaSecretarias().add(secretaria4);
     }
-
     private void initInstructores() {
         Instructor instructor = Instructor.builder()
                 .setNombre("Jose")
@@ -246,6 +241,134 @@ public class ModelFactory {
         academiaConduccion.getListaInstructores().add(instructor3);
         academiaConduccion.getListaInstructores().add(instructor4);
     }
+    private void initInscripciones() {
+        Inscripcion inscripcion1 = Inscripcion.builder()
+                .withFechaInscripcion(LocalDate.of(2022, 10, 10))
+                .withCategoriaLicencia(CategoriaLicencia.A1)
+                .withEstado("Activa")
+                .withNumeroInscripcion("123")
+                .build();
+        Inscripcion inscripcion2 = Inscripcion.builder()
+                .withFechaInscripcion(LocalDate.of(2023,12,13))
+                .withCategoriaLicencia(CategoriaLicencia.A1)
+                .withEstado("Activa")
+                .withNumeroInscripcion("345")
+                .build();
+        Inscripcion inscripcion3 = Inscripcion.builder()
+                .withFechaInscripcion(LocalDate.of(2019,9,9))
+                .withCategoriaLicencia(CategoriaLicencia.B1)
+                .withEstado("Caducada")
+                .withNumeroInscripcion("234")
+                .build();
+        Inscripcion inscripcion4 = Inscripcion.builder()
+                .withFechaInscripcion(LocalDate.of(2021, 1, 5))
+                .withCategoriaLicencia(CategoriaLicencia.C1)
+                .withEstado("Activa")
+                .withNumeroInscripcion("456")
+                .build();
+        academiaConduccion.getListaInscripciones().add(inscripcion1);
+        academiaConduccion.getListaInscripciones().add(inscripcion2);
+        academiaConduccion.getListaInscripciones().add(inscripcion3);
+        academiaConduccion.getListaInscripciones().add(inscripcion4);
+    }
+    private void initCursos() {
+        Curso curso = Curso.builder()
+                .withIdCurso("123")
+                .withCapacidad(10)
+                .withFechaInicio(LocalDate.of(2022, 10, 10))
+                .withFechaFin(LocalDate.of(2023, 10, 10))
+                .withCosto(2000000)
+                .withDescripcion("Primer curso")
+                .withDuracion(12)
+                .build();
+        Curso curso2 = Curso.builder()
+                .withIdCurso("345")
+                .withCapacidad(7)
+                .withFechaInicio(LocalDate.of(2022, 10, 10))
+                .withFechaFin(LocalDate.of(2024, 10, 10))
+                .withCosto(1700000)
+                .withDescripcion("Segundo curso")
+                .withDuracion(24)
+                .build();
+        Curso curso3 = Curso.builder()
+                .withIdCurso("4444")
+                .withCapacidad(15)
+                .withFechaInicio(LocalDate.of(2019, 10, 10))
+                .withFechaFin(LocalDate.of(2021, 10, 10))
+                .withCosto(3200000)
+                .withDescripcion("Tercer curso")
+                .withDuracion(24)
+                .build();
+        Curso curso4 = Curso.builder()
+                .withIdCurso("555")
+                .withCapacidad(20)
+                .withFechaInicio(LocalDate.of(2018, 10, 10))
+                .withFechaFin(LocalDate.of(2025, 10, 10))
+                .withCosto(5000000)
+                .withDescripcion("Cuarto curso")
+                .withDuracion(60)
+                .build();
+        academiaConduccion.getListaCursos().add(curso);
+        academiaConduccion.getListaCursos().add(curso2);
+        academiaConduccion.getListaCursos().add(curso3);
+        academiaConduccion.getListaCursos().add(curso4);
+    }
+    private void initRelations() {
+        /**
+         * Relacion de cursos con instructores
+         */
+
+
+        /**
+         * Relacion de cursos con inscripciones
+         */
+
+
+        initRelationsInstructores();
+        initRelationsCursos();
+        initRelationsInscripciones();
+    }
+
+    private void initRelationsInscripciones() {
+        academiaConduccion.getListaInscripciones().get(0).getCursosAsociados()
+                .add(academiaConduccion.getListaCursos().get(0));
+        academiaConduccion.getListaInscripciones().get(1).getCursosAsociados()
+                .add(academiaConduccion.getListaCursos().get(1));
+        academiaConduccion.getListaInscripciones().get(2).getCursosAsociados()
+                .add(academiaConduccion.getListaCursos().get(2));
+        academiaConduccion.getListaInscripciones().get(3).getCursosAsociados()
+                .add(academiaConduccion.getListaCursos().get(3));
+    }
+    private void initRelationsCursos() {
+        academiaConduccion.getListaCursos().get(0).getInstructoresAsociados()
+                .add(academiaConduccion.getListaInstructores().get(0));
+        academiaConduccion.getListaCursos().get(1).getInstructoresAsociados()
+                .add(academiaConduccion.getListaInstructores().get(1));
+        academiaConduccion.getListaCursos().get(2).getInstructoresAsociados()
+                .add(academiaConduccion.getListaInstructores().get(2));
+        academiaConduccion.getListaCursos().get(3).getInstructoresAsociados()
+                .add(academiaConduccion.getListaInstructores().get(3));
+
+        academiaConduccion.getListaCursos().get(0).getInscripcionesAsociadas()
+                .add(academiaConduccion.getListaInscripciones().get(0));
+        academiaConduccion.getListaCursos().get(1).getInscripcionesAsociadas()
+                .add(academiaConduccion.getListaInscripciones().get(1));
+        academiaConduccion.getListaCursos().get(2).getInscripcionesAsociadas()
+                .add(academiaConduccion.getListaInscripciones().get(2));
+        academiaConduccion.getListaCursos().get(3).getInscripcionesAsociadas()
+                .add(academiaConduccion.getListaInscripciones().get(3));
+    }
+
+    private void initRelationsInstructores() {
+        academiaConduccion.getListaInstructores().get(0).getCursosAsociados()
+                .add(academiaConduccion.getListaCursos().get(0));
+        academiaConduccion.getListaInstructores().get(1).getCursosAsociados()
+                .add(academiaConduccion.getListaCursos().get(1));
+        academiaConduccion.getListaInstructores().get(2).getCursosAsociados()
+                .add(academiaConduccion.getListaCursos().get(2));
+        academiaConduccion.getListaInstructores().get(3).getCursosAsociados()
+                .add(academiaConduccion.getListaCursos().get(3));}
+
     public boolean agregarUsuario(Usuario usuario) {
         return academiaConduccion.agregarUsuario(usuario);
 

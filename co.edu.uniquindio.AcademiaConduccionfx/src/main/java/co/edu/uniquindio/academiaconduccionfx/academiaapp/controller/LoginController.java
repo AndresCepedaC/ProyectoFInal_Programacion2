@@ -12,10 +12,6 @@ public class LoginController {
         return modelFactory.obtenerUsuario(text);
     }
 
-    public boolean validarContrasena(String cedula, String contrasena) {
-        return modelFactory.validarContrasena(cedula, contrasena);
-    }
-
     public boolean validarContrasenaInstructor(String usuario, String contrasena) {
         return modelFactory.validarContrasenaInstructor(usuario, contrasena);
     }
