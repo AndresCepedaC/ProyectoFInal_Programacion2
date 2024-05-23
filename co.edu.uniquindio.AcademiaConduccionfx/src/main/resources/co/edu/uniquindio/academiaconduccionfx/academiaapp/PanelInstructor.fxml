@@ -56,7 +56,7 @@
                      <children>
                         <SplitPane layoutY="-1.0" orientation="VERTICAL" prefHeight="527.0" prefWidth="663.0">
                            <items>
-                              <fx:include source="model/Curso.fxml" />
+                              <fx:include source="model/curso1.fxml" />
                            </items>
                         </SplitPane>
                      </children>

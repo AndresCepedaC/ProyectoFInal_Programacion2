@@ -10,11 +10,11 @@
    <children>
       <TabPane prefHeight="651.0" prefWidth="662.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Usuario">
+          <Tab style="-fx-background-color: #ffffff; -fx-border-color: black;" text="Usuario">
               <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                       <children>
-                          <SplitPane layoutY="-1.0" orientation="VERTICAL" prefHeight="527.0" prefWidth="663.0">
+                          <SplitPane layoutX="-2.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="632.0" prefWidth="663.0">
                               <items>
                                   <fx:include source="Usuario.fxml" />
                               </items>
@@ -23,30 +23,44 @@
                   </AnchorPane>
               </content>
           </Tab>
-          <Tab text="Secretaria">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
-            <Tab text="Administrador">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
+            <Tab style="-fx-background-color: #ffffff; -fx-border-color: black;" text="Instructor">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane layoutX="-2.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="632.0" prefWidth="663.0">
+                           <items>
+                              <fx:include source="Instructor.fxml" />
+                           </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+               </content>
             </Tab>
-            <Tab text="Instructor">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
+            <Tab style="-fx-background-color: #ffffff; -fx-border-color: black;" text="Secretaria">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane layoutX="-2.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="632.0" prefWidth="663.0">
+                           <items>
+                              <fx:include source="Secretaria.fxml" />
+                           </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+               </content>
             </Tab>
-            <Tab text="Curso">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-            <Tab text="Inscripcion">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
+            <Tab style="-fx-background-color: #ffffff; -fx-border-color: black;" text="Administrador">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane layoutX="-2.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="632.0" prefWidth="663.0">
+                           <items>
+                              <fx:include source="Administrador.fxml" />
+                           </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+               </content>
             </Tab>
         </tabs>
       </TabPane>

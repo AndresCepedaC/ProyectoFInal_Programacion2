@@ -39,8 +39,6 @@ public class UsuarioViewController {
     @FXML
     private Button btnObtenerXEdad;
     @FXML
-    private TextField txtPassword;
-    @FXML
     private TableView<Usuario> tableUsuario;
 
     @FXML
@@ -206,7 +204,9 @@ public class UsuarioViewController {
         campoTexto.textProperty().addListener((observable, oldValue, newValue) -> {
             ObservableList<Usuario> clientesFiltrados = FXCollections.observableArrayList();
             for (Usuario usuario : listaUsuarios) {
-                if (usuario.getNombre().toLowerCase().contains(newValue.toLowerCase()) || usuario.getApellido().toLowerCase().contains(newValue.toLowerCase()) || String.valueOf( usuario.getEdad()).toLowerCase().contains(newValue.toLowerCase())) {
+                if (usuario.getNombre().toLowerCase().contains(newValue.toLowerCase()) ||
+                        usuario.getApellido().toLowerCase().contains(newValue.toLowerCase()) ||
+                        String.valueOf( usuario.getEdad()).toLowerCase().contains(newValue.toLowerCase())) {
                     clientesFiltrados.add(usuario);
                 }
             }
@@ -238,7 +238,6 @@ public class UsuarioViewController {
         txtcedula.setText("");
         txtedad.setText("");
         txtcorreo.setText("");
-        txtPassword.setText("");
     }
     private void mostrarMensaje(String titulo, String header, String contenido, Alert.AlertType alertType) {
         Alert aler = new Alert(alertType);
@@ -259,9 +258,6 @@ public class UsuarioViewController {
         }else if (txtcorreo.getText().isEmpty()) {
             return false;
         }
-        else if (txtPassword.getText().isEmpty()) {
-            return false;
-        }
         return true;
     }
     private Usuario construirDatosUsuario(){
@@ -271,7 +267,6 @@ public class UsuarioViewController {
                 .setCorreo(txtcorreo.getText())
                 .setCedula(txtcedula.getText())
                 .setApellido(txtapellido.getText())
-                .setPassword(txtPassword.getText())
                 .build();
     }
     private void obtenerPorEdad() {

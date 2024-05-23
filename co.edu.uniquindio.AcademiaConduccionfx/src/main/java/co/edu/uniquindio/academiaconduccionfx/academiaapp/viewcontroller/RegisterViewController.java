@@ -117,7 +117,6 @@ public class RegisterViewController implements INavegacion {
                 .setCorreo(txtEmail.getText())
                 .setCedula(txtID.getText())
                 .setApellido(txtApellido.getText())
-                .setPassword(txtPassword.getText())
                 .build();
     }
     private boolean validarFormulario() {
